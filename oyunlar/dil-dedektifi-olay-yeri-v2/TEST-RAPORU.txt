@@ -1,0 +1,20 @@
+DİL DEDEKTİFİ — SON KONTROL
+
+Kontroller:
+- JavaScript sözdizimi kontrolü: geçti.
+- 4 ayrı tam state-machine oyun simülasyonu: geçti.
+  1) Normal doğru akış.
+  2) Kanıtların farklı sırada bulunması.
+  3) Yanlış kararlar sonrası doğru kanıta dönülmesi.
+  4) Farklı kanıt sırası + yanlış cevaplar + finalde yanlış şüpheli sonrası doğru çözüm.
+- Salon kanıtları farklı sırada toplanabiliyor.
+- Çekmece, küçük anahtar olmadan açılamıyor; anahtar alındıktan sonra yırtılmış not alınabiliyor.
+- Tanık ekranında kanıt seçme karmaşası kaldırıldı; ilgili kanıt otomatik gösteriliyor.
+- Balkon yalnızca tanıklar ve zaman çıkarımları tamamlandıktan sonra açılıyor.
+- Balkon bulguları farklı sırada bulunabiliyor.
+- Final ayakkabı kanıtı balkon bulgularından sonra anlam kazanıyor.
+- Yanlış final şüphelisi oyunu kilitlemiyor.
+- Yeniden oynama düğmesi mevcut.
+
+Not:
+Bu ortamda gerçek Chromium sayfasına erişim yönetim politikası tarafından engellendiği için fareyle canlı tarayıcı oynanışı otomatikleştirilemedi. Bu nedenle “tarayıcıda 4 kez oynadım” iddiasında bulunulmuyor; dört tam oyun yolu state-machine düzeyinde simüle edildi ve JS ayrıca sözdizimi kontrolünden geçirildi.
