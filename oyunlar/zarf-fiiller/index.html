@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071321">
+  <meta name="description" content="B1 düzeyi zarf-fiilleri oyunla öğrenme ve pekiştirme uygulaması.">
+  <title>Zarf-Fiil Laboratuvarı · Turkish with Akın</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23071321'/%3E%3Cpath d='M18 16h28v7H35v25h-7V23H18z' fill='%232de2c4'/%3E%3Ccircle cx='47' cy='45' r='7' fill='%23ffcb66'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#06111e;--panel:#0c1b2b;--panel2:#102338;--line:#203a50;--text:#f4fbff;--muted:#9eb2c1;--aqua:#2de2c4;--gold:#ffcb66;--coral:#ff7b72;--blue:#6eb6ff;--shadow:0 25px 70px rgba(0,0,0,.35)}
+    *{box-sizing:border-box} body{margin:0;min-height:100vh;background:radial-gradient(circle at 80% 10%,rgba(45,226,196,.12),transparent 28%),radial-gradient(circle at 0 90%,rgba(110,182,255,.1),transparent 32%),var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.55}
+    button{font:inherit}.shell{width:min(1120px,calc(100% - 32px));margin:0 auto;padding:22px 0 44px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:26px}.brand{display:flex;align-items:center;gap:12px;font-family:Manrope,sans-serif;font-weight:800}.mark{width:42px;height:42px;border:1px solid rgba(45,226,196,.45);border-radius:13px;display:grid;place-items:center;background:linear-gradient(145deg,rgba(45,226,196,.15),rgba(110,182,255,.05));color:var(--aqua);font-size:21px}.level{font-size:13px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:7px 12px;background:rgba(12,27,43,.75)}
+    .screen{display:none}.screen.active{display:block;animation:rise .45s ease both}@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+    .intro{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}.hero,.lesson,.game-card,.result-card{border:1px solid var(--line);background:linear-gradient(145deg,rgba(16,35,56,.98),rgba(9,25,40,.96));box-shadow:var(--shadow);border-radius:28px}.hero{padding:clamp(28px,5vw,58px);position:relative;overflow:hidden}.hero:after{content:'-İP';position:absolute;right:-12px;bottom:-46px;font:800 128px Manrope;color:rgba(45,226,196,.055);transform:rotate(-7deg)}.eyebrow{color:var(--aqua);letter-spacing:.15em;font-size:12px;font-weight:700;text-transform:uppercase}.hero h1{font:800 clamp(38px,6vw,68px)/1.02 Manrope;margin:16px 0 20px;letter-spacing:-.04em}.hero h1 span{color:var(--aqua)}.hero p{color:#bfd0db;font-size:18px;max-width:650px;margin:0 0 30px}.primary,.secondary,.option,.mini-btn{border:0;cursor:pointer;transition:.2s ease}.primary{display:inline-flex;align-items:center;gap:10px;background:var(--aqua);color:#04211c;padding:14px 20px;border-radius:14px;font-weight:800;box-shadow:0 10px 30px rgba(45,226,196,.19)}.primary:hover{transform:translateY(-2px);filter:brightness(1.05)}.primary:focus-visible,.option:focus-visible,.secondary:focus-visible,.mini-btn:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    .lesson{padding:24px;display:flex;flex-direction:column;gap:13px}.lesson h2{font:800 20px Manrope;margin:0 0 2px}.rule{border:1px solid var(--line);border-radius:18px;padding:17px;background:rgba(6,17,30,.35)}.rule-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}.suffix{font:800 20px Manrope}.tag{font-size:12px;font-weight:700;border-radius:99px;padding:4px 8px}.tag.sequence{color:var(--blue);background:rgba(110,182,255,.12)}.tag.method{color:var(--aqua);background:rgba(45,226,196,.12)}.tag.repeat{color:var(--gold);background:rgba(255,203,102,.12)}.rule p{font-size:14px;color:var(--muted);margin:0}.example{color:#eaf5fb;margin-top:6px!important}.example b{color:var(--gold)}
+    .game-wrap{max-width:860px;margin:0 auto}.hud{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;margin-bottom:16px}.progress-wrap{height:10px;border-radius:99px;background:#14283a;overflow:hidden}.progress{height:100%;width:0;background:linear-gradient(90deg,var(--aqua),var(--blue));transition:width .35s}.stat{border:1px solid var(--line);background:rgba(12,27,43,.82);border-radius:12px;padding:7px 12px;color:var(--muted);font-size:14px}.stat b{color:var(--text);font-size:17px}.game-card{padding:clamp(24px,5vw,48px);min-height:520px}.qmeta{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}.qmeta span:first-child{color:var(--aqua)}.question{font:700 clamp(24px,4vw,36px)/1.3 Manrope;margin:34px 0 14px}.prompt{color:var(--muted);margin:0 0 25px}.sentence{border-left:3px solid var(--gold);background:rgba(255,203,102,.07);padding:16px 18px;border-radius:0 12px 12px 0;margin:18px 0 24px;font-size:19px}.options{display:grid;gap:12px}.option{text-align:left;border:1px solid var(--line);border-radius:16px;background:#0b1a2a;color:var(--text);padding:16px 18px;display:flex;align-items:center;gap:14px}.letter{width:31px;height:31px;border-radius:9px;background:#162c41;color:var(--muted);display:grid;place-items:center;font-weight:800;flex:none}.option:hover:not(:disabled){border-color:#3b6079;transform:translateX(4px)}.option.correct{border-color:var(--aqua);background:rgba(45,226,196,.09)}.option.correct .letter{background:var(--aqua);color:#05221d}.option.wrong{border-color:var(--coral);background:rgba(255,123,114,.08)}.option.wrong .letter{background:var(--coral);color:#2c0704}.feedback{display:none;margin-top:20px;border-radius:16px;padding:16px 18px;background:#0a1725;border:1px solid var(--line)}.feedback.show{display:block;animation:rise .25s}.feedback strong{display:block;margin-bottom:4px}.feedback.ok strong{color:var(--aqua)}.feedback.no strong{color:var(--coral)}.feedback p{color:#b8c9d5;margin:0}.next-row{display:flex;justify-content:flex-end;margin-top:18px}.secondary{background:var(--text);color:#091725;padding:11px 17px;border-radius:12px;font-weight:800}.secondary[hidden]{display:none}
+    .result-card{max-width:880px;margin:0 auto;padding:clamp(26px,5vw,52px)}.result-head{text-align:center}.medal{width:78px;height:78px;margin:0 auto 18px;border-radius:24px;background:linear-gradient(145deg,var(--gold),#ff9f43);display:grid;place-items:center;color:#372000;font-size:36px;transform:rotate(-4deg)}.result-head h2{font:800 clamp(30px,5vw,48px) Manrope;margin:0}.scoreline{color:var(--muted);font-size:18px}.scoreline b{color:var(--aqua)}.report{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}.report-item{border:1px solid var(--line);border-radius:17px;background:#0a1928;padding:18px}.report-item span{font-weight:800;font-size:20px}.report-item small{display:block;color:var(--muted);margin:3px 0 9px}.bar{height:7px;background:#162b3e;border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;background:var(--aqua);border-radius:9px}.teacher-note{border:1px solid rgba(110,182,255,.28);background:rgba(110,182,255,.07);padding:17px;border-radius:16px;color:#cbdce6}.actions{display:flex;justify-content:center;gap:10px;margin-top:22px}.mini-btn{background:transparent;color:var(--text);border:1px solid var(--line);padding:11px 16px;border-radius:12px;font-weight:700}.mini-btn:hover{border-color:var(--aqua)}
+    .footer{text-align:center;color:#6f8798;font-size:13px;margin-top:28px}.confetti{position:fixed;inset:0;pointer-events:none;overflow:hidden}.confetti i{position:absolute;width:8px;height:14px;top:-20px;animation:fall 1.8s linear forwards}@keyframes fall{to{transform:translateY(105vh) rotate(720deg);opacity:.3}}
+    @media(max-width:760px){.shell{width:min(100% - 20px,1120px);padding-top:14px}.intro{grid-template-columns:1fr}.hero{padding:30px 24px}.hero h1{font-size:41px}.lesson{padding:18px}.hud{grid-template-columns:1fr auto}.hud .stat:last-child{display:none}.game-card{padding:24px 18px;min-height:540px}.qmeta{font-size:11px}.question{font-size:25px;margin-top:27px}.report{grid-template-columns:1fr}.actions{flex-direction:column}.actions button{width:100%}}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+    /* Turkish with Akın canlı oyun teması */
+    :root{--bg:#fff8ed;--panel:#fff;--panel2:#f7f4ff;--line:#e9dfd2;--text:#17233c;--muted:#677085;--aqua:#10bfa3;--gold:#ffbd3f;--coral:#ff6470;--blue:#6d63ff;--shadow:0 22px 55px rgba(54,43,25,.13)}
+    body{background:radial-gradient(circle at 85% 8%,rgba(109,99,255,.17),transparent 28%),radial-gradient(circle at 3% 88%,rgba(16,191,163,.16),transparent 32%),var(--bg)}
+    .mark{border:0;background:linear-gradient(145deg,#6d63ff,#9a67ff);color:#fff;box-shadow:0 9px 22px rgba(109,99,255,.25)}.level{background:#fff;border-color:var(--line)}
+    .hero,.lesson,.game-card,.result-card{background:#fff;border-color:var(--line)}.hero{background:linear-gradient(140deg,#fff,#fff5dc 58%,#efeeff)}.hero:after{color:rgba(109,99,255,.06)}
+    .eyebrow{color:#e65067}.hero p{color:#586278}.primary{background:linear-gradient(135deg,#6d63ff,#925fff);color:#fff;box-shadow:0 12px 28px rgba(109,99,255,.25)}
+    .rule{background:#faf8ff;border-color:#e6def3}.tag.sequence{color:#5047d3;background:#eae8ff}.tag.method{color:#078b75;background:#dffaf4}.tag.repeat{color:#946000;background:#fff0bd}
+    .progress-wrap{background:#e7e2dc}.progress{background:linear-gradient(90deg,#10bfa3,#6d63ff,#ff6b6b)}.stat{background:#fff;border-color:var(--line)}
+    .sentence{background:#fff3cd}.option{background:#fff;color:var(--text);border-color:#e2d9cf;box-shadow:0 7px 18px rgba(54,43,25,.055)}.letter{background:#eeeaff;color:#5a50d9}
+    .option.correct{background:#e6fbf5}.option.wrong{background:#fff0f1}.feedback{background:#faf7f2;border-color:var(--line)}.secondary{background:#10bfa3;color:#fff}.report-item{background:#faf8ff;border-color:var(--line)}.teacher-note{background:#efeeff;border-color:#d8d4ff;color:#414964}
+    /* Evidence-informed calm learning palette */
+    :root{--bg:#f3f7fa;--panel:#fff;--panel2:#f1f5fa;--line:#dbe5eb;--text:#17324d;--muted:#5f7082;--aqua:#159c8c;--gold:#f2b84b;--coral:#df665b;--blue:#3169d8;--shadow:0 22px 55px rgba(31,67,92,.12)}
+    body{background:radial-gradient(circle at 85% 8%,rgba(49,105,216,.09),transparent 27%),radial-gradient(circle at 3% 88%,rgba(21,156,140,.07),transparent 29%),var(--bg)}
+    .mark{background:linear-gradient(145deg,#3169d8,#557ce5);box-shadow:0 9px 22px rgba(49,105,216,.22)}
+    .hero{background:linear-gradient(140deg,#fff,#f4f8fc 58%,#eaf1fb)}
+    .hero:after{color:rgba(49,105,216,.055)}
+    .primary{background:linear-gradient(135deg,#3169d8,#557ce5);box-shadow:0 12px 28px rgba(49,105,216,.22)}
+    .rule{background:#f7fafd;border-color:#dbe5eb}
+    .back-library{display:inline-block;margin:0 0 20px;color:#3169d8;font-weight:800;text-decoration:none}.game-guide{padding:13px 16px;border-radius:13px;background:#eaf1fb;color:#425b73;margin:15px 0 20px}.game-guide p{margin:0 0 7px}.game-guide p:last-child{margin:0}
+  </style>
+<link rel="stylesheet" href="/assets/member-ui.css"></head>
+<body>
+  <main class="shell">
+    <header class="topbar"><a class="brand" href="/" style="color:inherit;text-decoration:none"><span class="mark">←</span><span>Turkish with Akın</span></a><span class="level">B1 · Zarf-Fiiller</span><a class="member-link" href="/hesabim/" data-en="Log in / Sign up" data-tr="Giriş / Üye ol">Log in / Sign up</a></header><a class="back-library" href="/seviyeler/b1/">← B1 Oyunları / B1 Games</a>
+
+    <section id="start" class="screen active intro">
+      <div class="hero">
+        <div class="eyebrow">Türkçe Dil Görevi · 01</div>
+        <h1>Cümleleri<br><span>harekete geçir.</span></h1>
+        <p>-(y)Ip, -(y)ArAk ve -A…-A yapılarını seçmeli cümle tamamlama oyununda pekiştir.</p><div class="game-guide"><p><b>Nasıl oynanır?</b> 10 soruyu sırayla yanıtla. Her soruda doğru cümleyi veya eki seç; açıklamayı oku ve sonraki soruya geç. Sonunda hangi yapıları tekrar etmen gerektiğini gör.</p><p><b>How to play:</b> Answer 10 questions in order. Choose the correct sentence or ending, read the explanation, then move to the next question. Review your results at the end.</p></div>
+        <button class="primary" id="startBtn">Göreve başla <span aria-hidden="true">→</span></button>
+      </div>
+      <aside class="lesson" aria-label="Kısa konu özeti">
+        <h2>Görev öncesi hızlı tekrar</h2>
+        <div class="rule"><div class="rule-top"><span class="suffix">-(y)Ip</span><span class="tag sequence">Sıralama</span></div><p>Birbiri ardınca yapılan eylemleri bağlar.</p><p class="example">Kapıyı aç<b>ıp</b> içeri girdi.</p></div>
+        <div class="rule"><div class="rule-top"><span class="suffix">-(y)ArAk</span><span class="tag method">Nasıl?</span></div><p>Eylemin nasıl veya ne biçimde yapıldığını gösterir.</p><p class="example">Gülümse<b>yerek</b> cevap verdi.</p></div>
+        <div class="rule"><div class="rule-top"><span class="suffix">-A…-A</span><span class="tag repeat">Tekrar / süreklilik</span></div><p>Eylemin tekrarlanarak ya da uzun süre yapıldığını anlatır.</p><p class="example">Düşün<b>e düşün</b>e çözümü buldu.</p></div>
+      </aside>
+    </section>
+
+    <section id="game" class="screen game-wrap" aria-live="polite">
+      <div class="hud"><div class="progress-wrap" aria-label="İlerleme"><div class="progress" id="progress"></div></div><div class="stat">Puan <b id="score">0</b></div><div class="stat">Seri <b id="streak">0</b>×</div></div>
+      <article class="game-card">
+        <div class="qmeta"><span id="type">Doğru eki seç</span><span id="counter">1 / 10</span></div>
+        <h2 class="question" id="question"></h2>
+        <p class="prompt" id="prompt"></p>
+        <div class="sentence" id="sentence"></div>
+        <div class="options" id="options"></div>
+        <div class="feedback" id="feedback"><strong id="feedbackTitle"></strong><p id="feedbackText"></p></div>
+        <div class="next-row"><button class="secondary" id="nextBtn" hidden>Sonraki görev →</button></div>
+      </article>
+    </section>
+
+    <section id="result" class="screen">
+      <article class="result-card">
+        <div class="result-head"><div class="medal" aria-hidden="true">✦</div><div class="eyebrow">Görev tamamlandı</div><h2 id="resultTitle">Zarf-fiil ustası!</h2><p class="scoreline"><b id="finalScore">0</b> puan · <span id="correctCount">0</span>/10 doğru</p></div>
+        <div class="report" id="report"></div>
+        <div class="teacher-note" id="teacherNote"></div>
+        <div class="actions"><button class="primary" id="replayBtn">Yeniden oyna</button><button class="mini-btn" id="reviewBtn">Konu özetine dön</button></div>
+      </article>
+    </section>
+    <div class="footer">Yeni İstanbul B1 konularıyla uyumlu · Zarf-fiil pekiştirme etkinliği</div>
+  </main>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+
+  <script>
+  const questions=[
+    {type:'Doğru eki seç',skill:'-(y)Ip',q:'İki eylemi sıraya koy.',prompt:'Önce kahvaltı, sonra evden çıkma gerçekleşiyor.',s:'Ece kahvaltı ___ evden çıktı.',o:['yaparak','yapıp','yapa yapa'],a:1,e:'“Kahvaltı yapmak” ve “evden çıkmak” art arda gerçekleşir. Bu nedenle -(y)Ip kullanılır.'},
+    {type:'Anlamı yakala',skill:'-(y)ArAk',q:'Bu cümlede zarf-fiil ne anlatıyor?',prompt:'Ana eylemin nasıl yapıldığına dikkat et.',s:'Öğretmen konuyu örnekler vererek anlattı.',o:['Eylemlerin sırasını','Eylemin yapılma biçimini','Eylemin tekrarını'],a:1,e:'“Örnekler vererek”, anlatma eyleminin nasıl yapıldığını gösterir.'},
+    {type:'Cümleyi birleştir',skill:'-A…-A',q:'Tekrarlı ve uzun süren eylemi seç.',prompt:'“Çok düşündü ve sonunda karar verdi.” anlamını koru.',s:'Uzun süre düşündü. Sonunda karar verdi.',o:['Düşünüp karar verdi.','Düşünerek karar verdi.','Düşüne düşüne karar verdi.'],a:2,e:'-A…-A yapısı eylemin tekrarlanarak veya uzun süre devam ettiğini vurgular.'},
+    {type:'Doğru eki seç',skill:'-(y)ArAk',q:'Eylemin nasıl yapıldığını göster.',prompt:'Telefon kullanma, konuşmanın gerçekleşme biçimidir.',s:'Mert telefonda ___ eve yürüdü.',o:['konuşup','konuşarak','konuşa konuşa'],a:1,e:'Burada “konuşmak”, yürümenin nasıl gerçekleştiğini anlatır: konuşarak yürümek.'},
+    {type:'Hata avcısı',skill:'-(y)Ip',q:'Hangi cümle dil bilgisi bakımından doğrudur?',prompt:'-(y)Ip yapısından sonra kip eki ana fiile gelir.',s:'Doğru cümleyi bul.',o:['Kitabı okuyup bitirdim.','Kitabı okudumup bitirdim.','Kitabı okuyup bitirdim miş.'],a:0,e:'Zaman ve kişi eki ana fiilde bulunur: oku-y-up bitir-di-m.'},
+    {type:'Anlamı yakala',skill:'-A…-A',q:'“Koşa koşa geldi.” neyi vurgular?',prompt:'Tekrarlı yapının cümleye kattığı anlama odaklan.',s:'Çocuk haberi alınca koşa koşa eve geldi.',o:['İstekli ve hızlı biçimde gelişini','Önce koşup sonra gelişini','Gelirken bir kez koşmasını'],a:0,e:'“Koşa koşa” koşma eyleminin sürekliliğini ve güçlü/istekli biçimde yapıldığını vurgular.'},
+    {type:'Cümleyi birleştir',skill:'-(y)Ip',q:'Anlamı en doğal biçimde birleştir.',prompt:'İki tamamlanmış eylem art arda yapılıyor.',s:'Defterini açtı. Not almaya başladı.',o:['Defterini açarak not almaya başladı.','Defterini açıp not almaya başladı.','Defterini aça aça not almaya başladı.'],a:1,e:'Önce defter açılıyor, ardından not alma başlıyor. Sıralı eylemler için -(y)Ip en doğal seçimdir.'},
+    {type:'Karşılaştır',skill:'-(y)ArAk',q:'Hangi cümlede “yöntem/araç” anlamı vardır?',prompt:'Eylemin hangi yolla gerçekleştirildiğini bul.',s:'',o:['Soruları okuyup cevapladı.','Kelime kartları kullanarak çalıştı.','Ağlaya ağlaya odasına gitti.'],a:1,e:'“Kelime kartları kullanarak” çalışma yöntemini bildirir; “Nasıl çalıştı?” sorusunu cevaplar.'},
+    {type:'Hata avcısı',skill:'-A…-A',q:'Tekrarlı yapının doğru kullanımını seç.',prompt:'İki fiil de aynı biçimde olmalıdır.',s:'',o:['Baka bakarak öğrendi.','Bakar baka öğrendi.','Baka baka öğrendi.'],a:2,e:'-A…-A yapısında aynı fiil aynı ekle tekrarlanır: bak-a bak-a.'},
+    {type:'Ustalık sorusu',skill:'-(y)Ip',q:'Özne ortaklığına dikkat et.',prompt:'Zarf-fiilli bölüm ile ana cümlenin öznesi genellikle aynıdır.',s:'Hangi cümle anlam bakımından daha düzgündür?',o:['Ben okula gidip ders başladı.','Ben okula gidip derse girdim.','Ben okula giderek zil çaldı.'],a:1,e:'“Gidip” ve “girdim” eylemlerinin öznesi aynıdır: ben. Diğer seçeneklerde özne değiştiği için anlatım bozulur.'}
+  ];
+  let index=0,score=0,streak=0,correct=0,answered=false,stats={};
+  const $=s=>document.querySelector(s); const screens=['#start','#game','#result'];
+  function show(id){screens.forEach(s=>$(s).classList.toggle('active',s===id));window.scrollTo({top:0,behavior:'smooth'})}
+  function begin(){index=0;score=0;streak=0;correct=0;stats={'-(y)Ip':{c:0,t:0},'-(y)ArAk':{c:0,t:0},'-A…-A':{c:0,t:0}};show('#game');render()}
+  function render(){answered=false;const x=questions[index];$('#type').textContent=x.type;$('#counter').textContent=`${index+1} / ${questions.length}`;$('#progress').style.width=`${index/questions.length*100}%`;$('#question').textContent=x.q;$('#prompt').textContent=x.prompt;$('#sentence').textContent=x.s;$('#sentence').style.display=x.s?'block':'none';$('#score').textContent=score;$('#streak').textContent=streak;$('#feedback').className='feedback';$('#nextBtn').hidden=true;const box=$('#options');box.innerHTML='';x.o.forEach((v,i)=>{const b=document.createElement('button');b.className='option';b.innerHTML=`<span class="letter">${String.fromCharCode(65+i)}</span><span>${v}</span>`;b.onclick=()=>answer(i,b);box.appendChild(b)})}
+  function answer(choice,button){if(answered)return;answered=true;const x=questions[index],ok=choice===x.a;stats[x.skill].t++;if(ok){correct++;streak++;stats[x.skill].c++;score+=10+Math.min(streak-1,3)*2}else{streak=0}document.querySelectorAll('.option').forEach((b,i)=>{b.disabled=true;if(i===x.a)b.classList.add('correct')});if(!ok)button.classList.add('wrong');$('#score').textContent=score;$('#streak').textContent=streak;$('#feedback').className=`feedback show ${ok?'ok':'no'}`;$('#feedbackTitle').textContent=ok?'Harika bağlantı!':'Bir kez daha düşünelim.';$('#feedbackText').textContent=x.e;$('#nextBtn').hidden=false;$('#nextBtn').textContent=index===questions.length-1?'Sonucu gör →':'Sonraki görev →'}
+  function next(){if(index<questions.length-1){index++;render()}else finish()}
+  function finish(){show('#result');$('#progress').style.width='100%';$('#finalScore').textContent=score;$('#correctCount').textContent=correct;let title=correct>=9?'Zarf-fiil ustası!':correct>=7?'Çok iyi ilerledin!':'Temel hazır, biraz pekiştirelim.';$('#resultTitle').textContent=title;$('#report').innerHTML=Object.entries(stats).map(([k,v])=>{const p=Math.round(v.c/v.t*100);return `<div class="report-item"><span>${k}</span><small>${v.c}/${v.t} doğru · %${p}</small><div class="bar"><i style="width:${p}%"></i></div></div>`}).join('');const weak=Object.entries(stats).sort((a,b)=>(a[1].c/a[1].t)-(b[1].c/b[1].t))[0][0];$('#teacherNote').innerHTML=correct>=9?'<b>Öğretmen notu:</b> Üç yapının anlamını seçmeli sorularda ayırt edebildin. Şimdi kendi cümlelerini yazarak kullanmayı dene.':'<b>Öğretmen notu:</b> En çok <b>'+weak+'</b> yapısının anlam işlevi üzerinde kısa bir tekrar önerilir. Sonrasında oyun yeniden oynanabilir.';if(correct>=8)celebrate();try{localStorage.setItem('zarfFiilBest',Math.max(score,+localStorage.getItem('zarfFiilBest')||0))}catch(e){}}
+  function celebrate(){const c=$('#confetti'),colors=['#2de2c4','#ffcb66','#6eb6ff','#ff7b72'];c.innerHTML='';for(let i=0;i<55;i++){const p=document.createElement('i');p.style.left=Math.random()*100+'%';p.style.background=colors[i%4];p.style.animationDelay=Math.random()*.6+'s';p.style.transform=`rotate(${Math.random()*180}deg)`;c.appendChild(p)}setTimeout(()=>c.innerHTML='',2600)}
+  $('#startBtn').onclick=begin;$('#nextBtn').onclick=next;$('#replayBtn').onclick=begin;$('#reviewBtn').onclick=()=>show('#start');
+  document.addEventListener('keydown',e=>{if($('#game').classList.contains('active')&&!answered&&['1','2','3'].includes(e.key)){document.querySelectorAll('.option')[+e.key-1]?.click()}if(answered&&e.key==='Enter')next()});
+  </script>
+<script type="module" src="/assets/identity.js"></script></body>
+</html>

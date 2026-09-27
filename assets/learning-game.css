@@ -1,0 +1,15 @@
+[hidden]{display:none!important}
+.learning-help{background:#edf4f8;border:1px solid #d0dfe8;border-radius:12px;padding:13px 16px;margin:14px 0;color:#24465e;font-size:16px}
+.learning-help p{margin:5px 0}.learning-help .en{color:#536c80;font-size:14px}
+.reference-box{border:1px solid #d0dfe8;border-radius:12px;padding:12px 15px;margin:14px 0;background:#fff}
+.reference-box summary{cursor:pointer;font-weight:700}.reference-box li{margin:8px 0}
+.learning-checks{border:1px solid #d0dfe8;border-radius:12px;padding:13px 16px;margin:15px 0}
+.learning-checks legend{font-weight:700}.learning-checks label{display:flex;gap:10px;margin:10px 0;align-items:flex-start}.learning-checks input{margin-top:6px;flex:none}
+.continue-stage{margin:14px 0;background:#08776c;color:#fff;border:0;border-radius:11px;padding:12px 18px;font-family:inherit;font-size:16px;font-weight:700;cursor:pointer}
+.written-copy{white-space:pre-wrap;text-align:left;background:#fff;border:1px solid #cadbe5;border-radius:10px;padding:15px;overflow-wrap:anywhere}
+.stage select{min-width:0;font-size:16px}.stage .time-row{grid-template-columns:28px minmax(0,1fr)}
+.stage button:focus-visible,.mission:focus-visible,.map button:focus-visible{outline:3px solid #d89b27;outline-offset:3px}
+.top{flex-wrap:wrap}.mission-map{grid-template-columns:repeat(5,minmax(90px,1fr));overflow-x:auto}.mission{font-size:14px}.mission::first-letter{font-size:inherit}
+.map button{font-size:14px}.feedback{font-size:16px}.stage .brief p{color:#536b7e}
+@media(max-width:520px){.stage .work,.stage .brief{min-width:0}.stage select{max-width:100%}.continue-stage{width:100%}.mission-map{grid-template-columns:repeat(5,100px)}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important}}
