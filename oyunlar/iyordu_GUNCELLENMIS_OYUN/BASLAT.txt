@@ -1,0 +1,9 @@
+ŞİMDİKİ ZAMANIN HİKÂYESİ – GÖRSEL KONU ANLATIMI VE OYUN
+
+1. ZIP dosyasını tamamen bir klasöre çıkarın.
+2. Bu klasördeki index.html dosyasını Chrome, Edge veya Firefox ile açın.
+3. assets klasörü ve data.js dosyası index.html ile aynı klasörde kalmalıdır.
+
+Oyun internet bağlantısı gerektirmez.
+Cümle kartlarını sürükleyebilir veya önce karta, sonra hedefe dokunabilirsiniz.
+Ses düğmesinden alkışı açıp kapatabilirsiniz.

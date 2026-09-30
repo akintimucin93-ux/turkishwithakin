@@ -1,0 +1,161 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Şimdiki Zamanın Hikâyesi (-ıyordu)</title>
+<style>
+:root{--navy:#102d5c;--blue:#1683dc;--green:#119b67;--purple:#7141d8;--cream:#fff7dc;--ink:#102b57;--muted:#5b6b82;--red:#ec4057}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:linear-gradient(135deg,#edf8ff,#f7f0ff);min-height:100vh}button{font:inherit}
+.screen{display:none;min-height:100vh}.screen.active{display:block}.wrap{max-width:1180px;margin:auto;padding:26px}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.brand{font-weight:900}.smallbtn{border:0;background:#fff;border-radius:999px;padding:10px 14px;font-weight:800;box-shadow:0 4px 14px #17345c18;cursor:pointer}
+.hero{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:32px;max-width:1220px;margin:auto;padding:36px}
+.hero-photo{height:650px;width:100%;object-fit:cover;border-radius:34px;box-shadow:0 24px 70px #163d6c35}.eyebrow{display:inline-block;background:#e6f3ff;color:#126fc0;padding:8px 13px;border-radius:999px;font-weight:900}
+h1{font-size:clamp(44px,6vw,76px);line-height:.98;margin:16px 0}.sub{font-size:22px;font-weight:900}.summary{font-size:19px;line-height:1.55;color:#40526e;max-width:650px}
+.remember{background:#fff5c9;border:1px solid #f2d77d;border-radius:22px;padding:18px;margin:20px 0}.remember b{font-size:20px}.verbs{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.verb{background:white;border-radius:12px;padding:8px 11px;font-weight:800}
+.primary{border:0;background:linear-gradient(135deg,#1686e4,#116ec1);color:#fff;padding:15px 25px;border-radius:999px;font-weight:900;font-size:18px;cursor:pointer;box-shadow:0 8px 18px #1683dc40}
+.title{font-size:clamp(34px,5vw,54px);margin:0 0 8px}.lead{font-size:18px;color:var(--muted);font-weight:700;line-height:1.5}
+.section-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}.section-card{background:white;border-radius:26px;overflow:hidden;box-shadow:0 14px 35px #163d6c18;border:1px solid #e7eef7;transition:.2s}.section-card:hover{transform:translateY(-4px)}.section-card img{width:100%;height:235px;object-fit:cover}.section-card .copy{padding:20px}.num{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:white;font-weight:900;font-size:22px;margin-top:-45px;position:relative;border:4px solid white}.blue{background:var(--blue)}.green{background:var(--green)}.purple{background:var(--purple)}.section-card h2{font-size:25px;margin:12px 0 6px}.go{width:100%;border:0;border-radius:14px;padding:12px;color:white;font-weight:900;cursor:pointer}
+.lesson{background:#fff;border-radius:28px;padding:22px;box-shadow:0 15px 40px #163d6c16}.lesson-head{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:16px}.lesson-head h2{font-size:34px;margin:0}.counter{font-weight:900;background:#edf5ff;border-radius:999px;padding:9px 13px}
+.time-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px}.bigphoto{width:100%;height:430px;object-fit:cover;border-radius:22px}.sentence{font-size:24px;font-weight:900;text-align:center;margin:15px 0}
+.timelinebox{background:#f4f9ff;border-radius:22px;padding:28px 22px;display:flex;flex-direction:column;justify-content:center}.axis{height:6px;background:#1d5791;position:relative;margin:50px 12px 15px;border-radius:8px}.duration{position:absolute;left:13%;width:38%;height:18px;top:-6px;background:#f3a1b1;border-radius:999px}.pastpoint{position:absolute;left:31%;top:-10px;width:26px;height:26px;border-radius:50%;background:#ef3f5a;border:5px solid white;box-shadow:0 0 0 2px #ef3f5a}.nowpoint{position:absolute;left:67%;top:-10px;width:26px;height:26px;border-radius:50%;background:#164a80;border:5px solid white;box-shadow:0 0 0 2px #164a80}.axislabels{display:flex;justify-content:space-between;font-weight:900}.note{margin-top:24px;background:#fff0f3;border-radius:16px;padding:16px;text-align:center;font-weight:900}.times{display:flex;justify-content:space-around;color:#52627a;font-weight:800;margin-top:12px}
+.pager{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:20px}.pager button{border:0;background:var(--navy);color:white;border-radius:999px;padding:11px 17px;font-weight:900;cursor:pointer}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:20px}.compare-card{border-radius:24px;overflow:hidden;border:1px solid #e4edf6}.compare-card img{width:100%;height:400px;object-fit:cover}.compare-copy{padding:16px}.tag{font-size:31px;font-weight:900}.old{background:#fff8df}.now{background:#eaf6ff}.cue{font-weight:800;color:#56647a;min-height:42px}
+.model{max-width:1100px;margin:auto}.model-grid,.game-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.step{background:white;border-radius:20px;overflow:hidden;box-shadow:0 8px 24px #00000012}.step img{width:100%;height:300px;object-fit:cover}.step-label{font-weight:900;padding:10px;text-align:center}.s1{background:#fff1b8}.s2{background:#ffd9df}.s3{background:#dbeeff}.step p{font-size:20px;font-weight:900;text-align:center;padding:0 12px 14px;margin:10px 0}.model-note{background:#fff7df;border-radius:16px;padding:14px 18px;margin:18px 0;font-weight:800}
+.transition{text-align:center;padding:80px 20px}.transition h2{font-size:55px;margin:0 0 12px}.transition p{font-size:21px;color:#5c6780}
+.gamebox{background:#f5efff;border-radius:26px;padding:20px}.game-photos .step img{height:240px}.cards{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:22px 0}.card{background:white;border:2px solid #b796f0;border-radius:14px;padding:13px 16px;font-weight:900;cursor:grab;touch-action:none;box-shadow:0 5px 12px #0001}.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.slot{min-height:115px;border:3px dashed #ad8bea;border-radius:17px;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px;font-weight:900;background:#fff9}.slot.locked{border-style:solid;border-color:#20a767;background:#e9fff2}.feedback{height:42px;text-align:center;font-size:25px;font-weight:900;color:#168b53;margin-top:12px}.pop{position:fixed;left:50%;top:50%;font-size:100px;font-weight:900;z-index:100;pointer-events:none;animation:pop .72s forwards}@keyframes pop{0%{transform:translate(-50%,-50%) scale(.1);opacity:0}45%{transform:translate(-50%,-50%) scale(1.25);opacity:1}100%{transform:translate(-50%,-50%) scale(.75);opacity:0}}.confetti{position:fixed;inset:0;pointer-events:none;z-index:90;overflow:hidden}.conf{position:absolute;top:-30px;font-size:24px;animation:fall 1.7s linear forwards}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.2}}
+@media(max-width:820px){.hero{grid-template-columns:1fr;padding:20px}.hero-photo{height:380px}.section-cards,.time-layout,.compare,.model-grid,.game-photos,.slots{grid-template-columns:1fr}.section-card img,.compare-card img,.bigphoto{height:300px}.step img,.game-photos .step img{height:250px}.wrap{padding:16px}}
+
+.card{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab}
+.card.placed{cursor:default;touch-action:auto;box-shadow:none;margin:0;width:100%}
+.card.selected{outline:3px solid var(--purple);outline-offset:3px}
+.card.drag-source{opacity:.28}
+.drag-ghost{position:fixed;z-index:100;pointer-events:none;cursor:grabbing;box-shadow:0 12px 30px #102d5c40;transform:rotate(-2deg)}
+.slot.drop-hover{outline:3px solid var(--purple);background:#f3edff}
+button:disabled{opacity:.45;cursor:default}
+.returning{animation:returnCard .4s ease}
+@keyframes returnCard{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}65%{transform:translateX(7px)}}
+.feedback{height:auto;min-height:42px}
+
+.hero-photo,.section-card img,.bigphoto,.compare-card img,.step img,.game-photos .step img{object-fit:contain;background:#eef2f6}
+
+.story-window{width:100%;aspect-ratio:1;overflow:hidden;background:#eef2f6}
+.game-photos .story-window img{display:block;width:300%;max-width:none;height:100%;object-fit:fill}
+
+.hero{padding:28px 36px;gap:36px}.hero h1{font-size:clamp(36px,4.4vw,60px);line-height:1.08;margin-bottom:8px}.cover-suffix{color:#cc503b}.english{font-size:20px;color:#60718a;font-weight:700;margin-bottom:22px}.hero-photo{height:auto;max-height:720px;aspect-ratio:2/3;object-fit:contain;background:transparent}.summary{margin:18px 0}.cover-example{background:#fff;border:1px solid #dce8f3;border-radius:22px;padding:20px;margin:22px 0;box-shadow:0 8px 26px #163d6c0d}.example-label{color:#53718d;font-size:14px;font-weight:800}.cover-example p{font-size:20px;line-height:1.4;font-weight:800;margin:10px 0 20px}.cover-line{height:5px;background:#244e75;border-radius:10px;position:relative;margin:30px 0 14px}.cover-band{position:absolute;left:8%;width:38%;height:13px;top:-4px;border-radius:10px;background:#efb3a7}.cover-past-dot,.cover-now-dot{position:absolute;top:-6px;width:17px;height:17px;border:3px solid #fff;border-radius:50%;background:#cc503b;left:27%;box-shadow:0 0 0 2px #cc503b}.cover-now-dot{left:80%;background:#244e75;box-shadow:0 0 0 2px #244e75}.cover-moments{position:relative;height:42px;font-size:14px}.cover-moments span{position:absolute;left:29%;transform:translateX(-50%);text-align:center;white-space:nowrap}.cover-moments span:last-child{left:82%}.cover-moments b{font-size:12px;font-weight:500}.cover-periods{display:flex;justify-content:space-between;width:82%;font-size:12px;color:#65798d;font-weight:800;margin-top:8px}.compare-card img{height:auto;aspect-ratio:1;object-fit:contain}.step img,.game-photos .step img{display:block;height:auto;aspect-ratio:1;object-fit:contain}.sentence{padding:0 12px;line-height:1.35}.lesson-head{flex-wrap:wrap}.hero .primary:focus-visible,button:focus-visible{outline:3px solid #cc503b;outline-offset:4px}
+@media(max-width:820px){.hero{padding:20px;gap:24px}.hero-photo{max-height:540px;max-width:420px;justify-self:center}.hero h1{font-size:40px}.english{font-size:18px}.lesson-head h2{font-size:28px}.transition h2{font-size:38px}}
+</style></head><body>
+<section id="cover" class="screen active"><div class="hero"><div><span class="eyebrow">Türkçe • Görsel Konu Anlatımı</span><h1>Şimdiki Zamanın Hikâyesi<br><span class="cover-suffix">-(I)yordu</span></h1><div class="english">(Past Continuous)</div><p class="summary"><b>Geçmişte devam eden bir eylemi anlatır.</b><br>Geçmişteki alışkanlıkları anlatırken de kullanılır.</p><div class="cover-example"><span class="example-label">Bir anı hatırla</span><p>Dün saat 20.00’de kitap okuyordum.</p><div class="cover-timeline" aria-label="Geçmişte dün saat 20.00'de kitap okuma sürüyordu; şimdi bu an geçmişte kaldı."><div class="cover-line"><span class="cover-band"></span><span class="cover-past-dot"></span><span class="cover-now-dot"></span></div><div class="cover-moments"><span>Dün 20.00<br><b>Okuma sürüyordu</b></span><span>Şimdi</span></div><div class="cover-periods"><span>GEÇMİŞ</span><span>ŞİMDİ</span></div></div></div><button class="primary" onclick="show('menu')">Başlayalım →</button></div><img class="hero-photo" src="assets/cover_scene.jpg" alt="Akşam saat 20.00’de masasında kitap okuyan kadın"></div></section>
+<section id="menu" class="screen"><div class="wrap"><div class="topbar"><div class="brand">Turkish with Akın</div><button class="smallbtn" onclick="show('cover')">← Kapak</button></div><h2 class="title">Bölümleri Keşfet</h2><p class="lead">Aynı yapının üç farklı kullanımını adım adım inceleyelim.</p><div class="section-cards">
+<div class="section-card"><img src="assets/selection_study.jpg"><div class="copy"><div class="num blue">01</div><h2>O Anda Ne Oluyordu?</h2><p>Geçmişte belirli bir anda devam eden eylemi zaman çizgisiyle keşfet.</p><button class="go blue" onclick="show('time')">Bu Bölüme Başla →</button></div></div>
+<div class="section-card"><img src="assets/selection_bike.jpg"><div class="copy"><div class="num green">02</div><h2>Eskiden Böyleydi</h2><p>Geçmişteki durum veya alışkanlık ile bugünü karşılaştır.</p><button class="go green" onclick="show('habit')">Bu Bölüme Başla →</button></div></div>
+<div class="section-card"><img src="assets/selection_phone.jpg"><div class="copy"><div class="num purple">03</div><h2>Tam Yapıyordum ki…</h2><p>Araya giren olayı ve sonucunu iki örnekten sonra uygulamayla keşfet.</p><button class="go purple" onclick="startModels()">Bu Bölüme Başla →</button></div></div>
+</div></div></section>
+<section id="time" class="screen"><div class="wrap"><div class="topbar"><button class="smallbtn" onclick="show('menu')">← Bölümlere Dön</button><button class="smallbtn" onclick="toggleSound()">Ses <span class="soundstate">Açık</span></button></div><div class="lesson"><div class="lesson-head"><h2>1 · O Anda Ne Oluyordu?</h2><div id="tcounter" class="counter"></div></div><p class="lead">Geçmişte belirli bir anda devam etmekte olan eylemi görsel ve zaman çizgisi üzerinden inceleyelim.</p><div class="time-layout"><div><img id="timg" class="bigphoto"><div id="tsentence" class="sentence"></div></div><div class="timelinebox"><div class="axis"><div class="duration"></div><div class="pastpoint"></div><div class="nowpoint"></div></div><div class="axislabels"><span>GEÇMİŞ</span><span>ŞİMDİ</span><span>GELECEK</span></div><div class="times"><span id="tstart"></span><b id="ttime"></b><span id="tend"></span></div><div id="tnote" class="note"></div></div></div><div class="pager"><button onclick="moveTime(-1)">← Önceki</button><b id="tpager"></b><button onclick="moveTime(1)">Sonraki →</button></div></div></div></section>
+<section id="habit" class="screen"><div class="wrap"><div class="topbar"><button class="smallbtn" onclick="show('menu')">← Bölümlere Dön</button><button class="smallbtn" onclick="toggleSound()">Ses <span class="soundstate">Açık</span></button></div><div class="lesson"><div class="lesson-head"><h2>2 · Eskiden Böyleydi</h2><div id="hcounter" class="counter"></div></div><p class="lead">Geçmişte düzenli olan alışkanlık veya durum ile bugünkü durumu karşılaştıralım.</p><div class="compare"><div class="compare-card old"><div class="compare-copy"><div class="tag">Eskiden</div><div class="cue">Geçmişte düzenli olarak yapılan alışkanlık veya devam eden durum.</div></div><img id="holdimg"><div id="hold" class="sentence"></div></div><div class="compare-card now"><div class="compare-copy"><div class="tag">Şimdi</div><div class="cue">Şu anda yapılan eylem veya mevcut durum.</div></div><img id="hnowimg"><div id="hnow" class="sentence"></div></div></div><div class="pager"><button onclick="moveHabit(-1)">← Önceki</button><b id="hpager"></b><button onclick="moveHabit(1)">Sonraki →</button></div></div></div></section>
+<section id="model" class="screen"><div class="wrap"><div class="topbar"><button class="smallbtn" onclick="show('menu')">← Bölümlere Dön</button><button class="smallbtn" onclick="toggleSound()">Ses <span class="soundstate">Açık</span></button></div><div class="lesson model"><div class="lesson-head"><h2>3 · Tam Yapıyordum ki…</h2><div id="mcounter" class="counter"></div></div><p class="lead">Önce iki örneği öğretmeninle incele: devam eden eylem, araya giren olay ve sonuç.</p><div id="modelgrid" class="model-grid"></div><div class="model-note"><b>Önemli:</b> Burada <b>-ıyordu</b> tek başına “gerçekleşmeyen eylem” demek değildir. “Tam”, bağlam, araya giren olay ve sonuç birlikte bu anlamı oluşturur.</div><div class="pager"><button id="modelPrev" onclick="moveModel(-1)">← Önceki</button><b id="modelPager"></b><button id="modelNext" onclick="moveModel(1)">Sonraki Örnek →</button></div></div></div></section>
+<section id="transition" class="screen"><div class="wrap"><div class="lesson transition"><h2>Şimdi Sıra Sende!</h2><p>Üç sahneyi incele. Karışık cümleleri doğru olay sırasına sürükleyip bırak.</p><button class="primary" onclick="startGame()">Uygulamaya Başla →</button></div></div></section>
+<section id="game" class="screen"><div class="wrap"><div class="topbar"><button class="smallbtn" onclick="show('menu')">← Bölümlere Dön</button><button class="smallbtn" onclick="toggleSound()">Ses <span class="soundstate">Açık</span></button></div><div class="lesson"><div class="lesson-head"><h2>Şimdi Sıra Sende!</h2><div id="gcounter" class="counter"></div></div><p class="lead">Fotoğraflardaki olay akışını incele ve cümleleri doğru sıraya yerleştir.</p><div class="gamebox"><div id="gphotos" class="game-photos"></div><div id="cards" class="cards"></div><div class="slots"><div class="slot" data-i="0">1 · Başlangıç / Niyet</div><div class="slot" data-i="1">2 · Araya Giren Olay</div><div class="slot" data-i="2">3 · Sonuç</div></div><div id="feedback" class="feedback" role="status" aria-live="polite"></div><div class="pager"><button id="nextGame" style="display:none" onclick="nextGame()">Sonraki Soru →</button></div></div></div></div></section>
+<audio preload="auto" id="applause" src="assets/applause.wav"></audio><div id="confetti" class="confetti"></div>
+<script src="data.js"></script><script>
+let ti=0,hi=0,mi=0,gi=0,drag=null,soundOn=true;
+function show(id){applause.pause();applause.currentTime=0;cancelDrag();clearSelection();document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo(0,0)}
+function toggleSound(){soundOn=!soundOn;if(!soundOn)applause.pause();document.querySelectorAll('.soundstate').forEach(x=>x.textContent=soundOn?'Açık':'Kapalı')}
+function renderTime(){let x=TIME[ti];timg.src='assets/'+x.img;timg.alt=x.sentence;tsentence.textContent=x.sentence;tstart.textContent=x.start;tend.textContent=x.end;ttime.textContent=x.time.replace('Dün ','');tnote.textContent=x.note;tcounter.textContent=(ti+1)+' / '+TIME.length;tpager.textContent=(ti+1)+' / '+TIME.length}
+function moveTime(n){ti=Math.max(0,Math.min(TIME.length-1,ti+n));renderTime()}
+function renderHabit(){let x=HABIT[hi];holdimg.src='assets/'+x.oldimg;hnowimg.src='assets/'+x.nowimg;holdimg.alt=x.old;hnowimg.alt=x.now;hold.textContent=x.old;hnow.textContent=x.now;hcounter.textContent=(hi+1)+' / '+HABIT.length;hpager.textContent=(hi+1)+' / '+HABIT.length}
+function moveHabit(n){hi=Math.max(0,Math.min(HABIT.length-1,hi+n));renderHabit()}
+function startModels(){mi=0;renderModel();show('model')}
+function renderModel(){let x=MODELS[mi],labels=['1 · Devam Eden Eylem / Niyet','2 · Tam o sırada…','3 · Sonuç'];modelgrid.innerHTML=x.images.map((im,i)=>`<div class="step"><div class="step-label s${i+1}">${labels[i]}</div><img src="assets/${im}" alt="${x.sentences[i]}"><p>${x.sentences[i]}</p></div>`).join('');mcounter.textContent='Model Örnek '+(mi+1)+' / 2';modelPager.textContent=(mi+1)+' / 2';modelPrev.style.visibility=mi===0?'hidden':'visible';modelNext.textContent=mi===1?'Şimdi Sıra Sende →':'İkinci Örneği Görelim →'}
+function moveModel(n){if(mi===1&&n===1){show('transition');return}mi=Math.max(0,Math.min(1,mi+n));renderModel()}
+function startGame(){gi=0;renderGame();show('game')}
+function pop(ok){let e=document.createElement('div');e.className='pop';e.style.color=ok?'#18a75f':'#e43b45';e.textContent=ok?'✓':'✕';document.body.appendChild(e);setTimeout(()=>e.remove(),750)}
+let activeDrag=null,selectedCard=null,roundComplete=false;
+function nextButton(){return document.getElementById('nextGame')}
+function clearSelection(){if(selectedCard)selectedCard.classList.remove('selected');selectedCard=null}
+function cancelDrag(){
+ if(!activeDrag)return;const d=activeDrag;activeDrag=null;
+ if(d.scrollFrame)cancelAnimationFrame(d.scrollFrame);
+ d.ghost?.remove();d.card.classList.remove('drag-source');
+ document.querySelectorAll('.slot').forEach(s=>s.classList.remove('drop-hover'));
+ try{if(d.card.hasPointerCapture(d.id))d.card.releasePointerCapture(d.id)}catch(_){}
+}
+function renderGame(){
+ applause.pause();applause.currentTime=0;cancelDrag();clearSelection();roundComplete=false;
+ const x=GAME[gi];gcounter.textContent=(gi+1)+' / '+GAME.length;
+ feedback.textContent='';nextButton().style.display='inline-block';nextButton().disabled=true;confetti.replaceChildren();
+ gphotos.innerHTML=x.images.map((im,i)=>`<div class="step"><div class="step-label s${i+1}">${['Başlangıç / Niyet','Araya Giren Olay','Sonuç'][i]}</div>${x.storyStrip?`<div class="story-window"><img src="assets/${im}" alt="${x.correct[i]}" style="transform:translateX(-${i*100/3}%)"></div>`:`<img src="assets/${im}" alt="${x.correct[i]}">`}</div>`).join('');
+ cards.innerHTML='';
+ document.querySelectorAll('.slot').forEach((s,i)=>{
+  s.classList.remove('locked','drop-hover');s.textContent=(i+1)+' · '+['Başlangıç / Niyet','Araya Giren Olay','Sonuç'][i];
+  s.tabIndex=0;s.setAttribute('role','button');s.setAttribute('aria-label',s.textContent);
+  s.onclick=()=>{if(selectedCard)tryDrop(selectedCard,s)};
+  s.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();if(selectedCard)tryDrop(selectedCard,s)}};
+ });
+ const order=[...x.cards];for(let i=order.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]]}
+ order.forEach(txt=>{
+  const c=document.createElement('div');c.className='card';c.textContent=txt;c.dataset.text=txt;
+  c.tabIndex=0;c.setAttribute('role','button');c.setAttribute('aria-label',txt+' — sürükle veya seçip hedefe dokun');c.draggable=false;
+  c.addEventListener('pointerdown',pointerStart);c.addEventListener('pointermove',pointerMove);
+  c.addEventListener('pointerup',pointerEnd);c.addEventListener('pointercancel',cancelDrag);
+  c.addEventListener('lostpointercapture',()=>{if(activeDrag?.card===c)cancelDrag()});
+  c.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selectCard(c)}else if(e.key==='Escape')clearSelection()};
+  cards.appendChild(c);
+ });
+}
+function selectCard(c){const was=selectedCard===c;clearSelection();if(!was&&!c.classList.contains('placed')){selectedCard=c;c.classList.add('selected')}}
+function tryDrop(card,slot){
+ if(roundComplete||card.classList.contains('placed')||!card.isConnected)return;
+ if(slot.classList.contains('locked')){clearSelection();return}
+ const idx=+slot.dataset.i;
+ if(card.dataset.text===GAME[gi].correct[idx]){
+  pop(true);clearSelection();slot.classList.add('locked');slot.replaceChildren(card);
+  card.classList.add('placed');card.tabIndex=-1;card.setAttribute('aria-disabled','true');
+  slot.tabIndex=-1;slot.setAttribute('aria-label',card.dataset.text+' — doğru');
+  if(document.querySelectorAll('.slot.locked').length===3)complete();
+ }else{
+  pop(false);clearSelection();card.classList.remove('returning');void card.offsetWidth;card.classList.add('returning');
+  setTimeout(()=>card.classList.remove('returning'),450);
+ }
+}
+function pointerStart(e){
+ if((e.pointerType==='mouse'&&e.button!==0)||!e.isPrimary||e.currentTarget.classList.contains('placed'))return;
+ cancelDrag();const c=e.currentTarget;
+ activeDrag={card:c,id:e.pointerId,x:e.clientX,y:e.clientY,ghost:null,rect:c.getBoundingClientRect()};c.setPointerCapture(e.pointerId);
+}
+function pointerMove(e){
+ const d=activeDrag;if(!d||e.pointerId!==d.id)return;
+ if(!d.ghost&&Math.hypot(e.clientX-d.x,e.clientY-d.y)<7)return;
+ if(!d.ghost){
+  clearSelection();d.ghost=d.card.cloneNode(true);d.ghost.className='card drag-ghost';d.ghost.setAttribute('aria-hidden','true');d.ghost.style.width=d.rect.width+'px';
+  document.body.appendChild(d.ghost);d.card.classList.add('drag-source');d.pointerX=e.clientX;d.pointerY=e.clientY;d.scrollFrame=requestAnimationFrame(scrollDuringDrag);
+ }
+ e.preventDefault();d.pointerX=e.clientX;d.pointerY=e.clientY;
+ d.ghost.style.left=(e.clientX-(d.x-d.rect.left))+'px';d.ghost.style.top=(e.clientY-(d.y-d.rect.top))+'px';
+ const slot=document.elementFromPoint(e.clientX,e.clientY)?.closest('.slot');
+ document.querySelectorAll('.slot').forEach(s=>s.classList.toggle('drop-hover',s===slot&&!s.classList.contains('locked')));
+}
+function scrollDuringDrag(){
+ const d=activeDrag;if(!d?.ghost)return;const edge=70,y=d.pointerY;
+ if(y>innerHeight-edge)window.scrollBy(0,Math.min(18,4+(y-innerHeight+edge)/4));
+ else if(y<edge)window.scrollBy(0,-Math.min(18,4+(edge-y)/4));
+ const slot=document.elementFromPoint(d.pointerX,y)?.closest('.slot');
+ document.querySelectorAll('.slot').forEach(s=>s.classList.toggle('drop-hover',s===slot&&!s.classList.contains('locked')));
+ d.scrollFrame=requestAnimationFrame(scrollDuringDrag);
+}
+function pointerEnd(e){
+ const d=activeDrag;if(!d||e.pointerId!==d.id)return;
+ const moved=!!d.ghost,slot=document.elementFromPoint(e.clientX,e.clientY)?.closest('.slot');
+ cancelDrag();if(moved){if(slot)tryDrop(d.card,slot)}else selectCard(d.card);
+}
+function complete(){
+ if(roundComplete)return;roundComplete=true;feedback.textContent='Harika! Hikâyeyi doğru sıraya koydun.';
+ if(soundOn){applause.currentTime=0;applause.play().catch(()=>{})}
+ for(let i=0;i<55;i++){
+  const c=document.createElement('span');c.className='conf';c.textContent=['★','◆','●','✦'][i%4];
+  c.style.left=Math.random()*100+'%';c.style.color=['#f2b705','#18a75f','#7141d8','#e84655'][i%4];
+  c.style.animationDelay=Math.random()*.35+'s';confetti.appendChild(c);setTimeout(()=>c.remove(),2000);
+ }
+ if(gi<GAME.length-1){nextButton().disabled=false;nextButton().style.display='inline-block'}
+ else{nextButton().style.display='none';feedback.textContent='Tebrikler! Beş uygulamayı da tamamladın.'}
+}
+function nextGame(){if(!roundComplete||gi>=GAME.length-1)return;gi++;renderGame()}
+
+renderTime();renderHabit();
+</script></body></html>

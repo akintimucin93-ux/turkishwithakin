@@ -1,0 +1,52 @@
+﻿Bölüm,Örnek,Cümle,Görsel
+1,1,Dün saat 22.30'da ders çalışıyordum.,time_01.jpg
+1,2,Dün saat 21.00'de kitap okuyordum.,time_02.jpg
+1,3,Dün saat 18.30'da yemek yapıyordum.,time_03.jpg
+1,4,Dün saat 08.15'te işe gidiyordum.,time_04.jpg
+1,5,Dün saat 17.40'ta bisiklete biniyordum.,time_05.jpg
+1,6,Dün saat 16.20'de ödev yapıyordum.,time_06.jpg
+1,7,Dün saat 19.45'te arkadaşımla telefonda konuşuyordum.,time_07.jpg
+1,8,Dün saat 20.10'da akşam yemeği hazırlıyordum.,time_08.jpg
+1,9,Dün saat 23.00'te uyumaya hazırlanıyordum.,time_09.jpg
+1,10,Dün saat 14.30'da sınava çalışıyordum.,time_10.jpg
+2,1,Babam eskiden işe bisikletle gidiyordu.,habit_01_1.jpg
+2,1,Babam şimdi işe arabayla gidiyor.,habit_01_2.jpg
+2,2,Elif eskiden derslerini kütüphanede çalışıyordu.,habit_02_1.jpg
+2,2,Elif şimdi çoğunlukla evde çalışıyor.,habit_02_2.jpg
+2,3,Mert eskiden hafta sonları bisiklete biniyordu.,habit_03_1.jpg
+2,3,Mert şimdi hafta sonları arabayla şehir dışına gidiyor.,habit_03_2.jpg
+2,4,Zeynep eskiden arkadaşlarını telefonla arıyordu.,habit_04_1.jpg
+2,4,Zeynep şimdi arkadaşlarıyla görüntülü konuşuyor.,habit_04_2.jpg
+2,5,Babam eskiden sabahları bisikletle sahile gidiyordu.,habit_05_1.jpg
+2,5,Babam şimdi sabahları arabayla işe gidiyor.,habit_05_2.jpg
+2,6,Ben eskiden akşamları masada ders çalışıyordum.,habit_06_1.jpg
+2,6,Ben şimdi çoğunlukla bilgisayarla çalışıyorum.,habit_06_2.jpg
+2,7,Ayşe eskiden yağmurlu günlerde evde oturuyordu.,habit_07_1.jpg
+2,7,Ayşe şimdi yağmurda da dışarı çıkıyor.,habit_07_2.jpg
+2,8,Can eskiden işe bisikletle gidiyordu.,habit_08_1.jpg
+2,8,Can şimdi işe otobüsle gidiyor.,habit_08_2.jpg
+2,9,Derya eskiden yemeklerini evde hazırlıyordu.,habit_09_1.jpg
+2,9,Derya şimdi yoğun günlerde dışarıdan yemek söylüyor.,habit_09_2.jpg
+2,10,Ben eskiden sabahları çay içiyordum.,habit_10_1.jpg
+2,10,Ben şimdi sabahları kahve içiyorum.,habit_10_2.jpg
+MODELS,1,Tam ders çalışıyordum.,model_1_1.jpg
+MODELS,1,Telefon çaldı.,model_1_2.jpg
+MODELS,1,Ders çalışamadım.,model_1_3.jpg
+MODELS,2,Tam dışarı çıkıyordum.,model_2_1.jpg
+MODELS,2,Yağmur başladı.,model_2_2.jpg
+MODELS,2,Dışarı çıkamadım.,model_2_3.jpg
+GAME,1,Tam ders çalışıyordum.,game_1_1.jpg
+GAME,1,Telefon çaldı.,game_1_2.jpg
+GAME,1,Ders çalışamadım.,game_1_3.jpg
+GAME,2,Tam otobüse biniyordum.,game_2_1.jpg
+GAME,2,Otobüs hareket etti.,game_2_2.jpg
+GAME,2,Otobüse binemedim.,game_2_3.jpg
+GAME,3,Tam yemek yapıyordum.,game_3_1.jpg
+GAME,3,Kargo geldi.,game_3_2.jpg
+GAME,3,Yemeği bitiremedim.,game_3_3.jpg
+GAME,4,Tam yürüyüşe çıkıyordum.,game_4_1.jpg
+GAME,4,Yağmur başladı.,game_4_2.jpg
+GAME,4,Yürüyüşe çıkamadım.,game_4_3.jpg
+GAME,5,Tam arkadaşıma mesaj yazıyordum.,game_5_1.jpg
+GAME,5,Öğretmen içeri girdi.,game_5_2.jpg
+GAME,5,Mesajı gönderemedim.,game_5_3.jpg

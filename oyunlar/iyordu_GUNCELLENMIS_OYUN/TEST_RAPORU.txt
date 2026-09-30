@@ -1,0 +1,27 @@
+KONTROL TARİHİ: 30 Eylül 2026
+
+Güncelleme:
+- Yeni kapak fotoğrafı; -(I)yordu başlığı, küçük Past Continuous karşılığı, kısa işlev açıklaması ve tek örnekli zaman çizelgesi.
+- 1. bölümün 8. ve 9. fotoğrafları yenilendi.
+- 2. bölümün 10 karşılaştırmasının fotoğrafları yenilendi.
+- Son karşılaştırma: eskiden sabahları çay / şimdi kahve.
+- İki öğretmen modeli, 1. uygulama ve yürüyüş hikâyesi yenilendi.
+- Onaylanan otobüs, kargo ve sınıf hikâyeleri korundu.
+- Üç sahneli setler bağımsız karelere ayrıldı; resimler orantıları korunarak gösteriliyor.
+- Gerçek alkış kaydı eklendi; ses düzeyi dengelendi.
+
+Tarayıcıda gerçekleştirilen kontroller (Chromium 133):
+- 10 zaman örneği ve 10 karşılaştırma: ileri/geri gezinme, resim yükleme.
+- İki model örneği ve uygulamaya geçiş.
+- Beş uygulama: fareyle ve dokunmayla ayrı ayrı tamamlandı.
+- 10 yanlış yerleştirme: kart geri döndü.
+- 10 tur: doğru kartlar kilitlendi, konfeti ve alkış çalıştı.
+- Bölüm geçişi, son sorunun bitiş mesajı, yeniden başlama.
+- Kart seçip hedefe dokunma ve klavye ile yerleştirme.
+- Dokunmatik sürüklemede ekran kenarında otomatik kaydırma.
+- 390 piksel telefon görünümü: kapak, menü, zaman örnekleri, karşılaştırma, model ve oyun; yatay taşma yok.
+- Sesi kapatma ve menüye dönme: çalan alkış duruyor.
+- Başvurulan bütün görseller ve ses dosyası mevcut.
+- JavaScript hatası görülmedi.
+
+Not: Testler yukarıdaki tarayıcı ve ekran boyutlarıyla sınırlıdır; her cihazda ayrı test yapılmadı.
