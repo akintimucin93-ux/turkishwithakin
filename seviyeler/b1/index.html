@@ -2,415 +2,55 @@
 :root{--ink:#17324d;--muted:#607386;--paper:#f3f7fa;--white:#fff;--blue:#3169d8;--teal:#159c8c;--amber:#e5a92e;--line:#d8e4ea;--shadow:0 16px 42px rgba(31,67,92,.11)}*{box-sizing:border-box}body{margin:0;color:var(--ink);font:16px/1.55 "DM Sans",sans-serif;background:radial-gradient(circle at 94% 0,rgba(49,105,216,.1),transparent 24%),var(--paper)}a{color:inherit;text-decoration:none}button{font:inherit}.shell{width:min(1060px,calc(100% - 30px));margin:auto}.top{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{display:flex;align-items:center;gap:10px;font:800 18px Manrope}.mark{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;background:var(--blue);color:#fff;font-size:12px}.tools{display:flex;align-items:center;gap:9px}.home{font-weight:800;color:#52697c;padding:9px}.lang{display:flex;padding:4px;background:#fff;border:1px solid var(--line);border-radius:12px}.lang button{border:0;background:transparent;color:var(--muted);font-weight:800;padding:7px 9px;border-radius:8px;cursor:pointer}.lang button.active{background:var(--ink);color:#fff}.intro{display:grid;grid-template-columns:1fr auto;align-items:end;gap:25px;padding:38px 0 27px;border-bottom:1px solid var(--line)}.eyebrow{color:var(--teal);font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.intro h1{font:800 clamp(38px,6vw,62px)/1 Manrope;letter-spacing:-.05em;margin:8px 0 13px}.intro p{max-width:680px;color:var(--muted);font-size:17px;margin:0}.level{width:112px;height:112px;border-radius:28px;display:grid;place-items:center;background:linear-gradient(145deg,#285fc6,#557fe4);color:#fff;font:800 40px Manrope;box-shadow:var(--shadow)}.library{display:grid;gap:14px;padding:28px 0 30px}.folder{display:grid;grid-template-columns:220px 1fr;border:1px solid var(--line);border-radius:19px;background:#fff;box-shadow:0 9px 27px rgba(31,67,92,.06);overflow:hidden}.folder-head{padding:22px;border-right:1px solid var(--line);background:#f8fbfc}.folder:nth-child(2) .folder-head{background:#f1f8f7}.folder:nth-child(3) .folder-head{background:#fff9ec}.folder-icon{width:43px;height:36px;border-radius:8px 9px 9px 9px;position:relative;display:grid;place-items:center;background:var(--blue);color:#fff;font-weight:800;margin-bottom:13px}.folder-icon:before{content:"";position:absolute;left:0;top:-5px;width:19px;height:7px;border-radius:5px 5px 0 0;background:inherit}.folder:nth-child(2) .folder-icon{background:var(--teal)}.folder:nth-child(3) .folder-icon{background:var(--amber);color:#624600}.folder h2{font:800 19px Manrope;margin:0 0 5px}.folder-head p{font-size:13px;color:var(--muted);margin:0}.items{padding:10px 14px}.item{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:15px 10px;border-bottom:1px solid #e8eef2;border-radius:11px}.item:last-child{border:0}.item:hover{background:#f5f8fb}.item b{display:block;font:800 17px Manrope}.item small{display:block;color:var(--muted);margin-top:4px}.meta{display:flex;align-items:center;gap:7px;white-space:nowrap}.topic,.type{padding:5px 8px;border-radius:99px;font-size:12px;font-weight:800;font-style:normal}.topic{background:#e9f0ff;color:var(--blue)}.type{background:#e4f4f1;color:#08786c}.arrow{font-size:20px;color:var(--blue)}.guide{padding:18px 20px;background:#eaf1ff;border:1px solid #cddcf7;border-radius:17px;margin-bottom:45px;color:#49647c}.guide b{color:var(--ink)}.foot{padding:27px 0;border-top:1px solid var(--line);color:#748696;font-size:13px}
 .folder:nth-child(4) .folder-head{background:#f6f2ff}.folder:nth-child(4) .folder-icon{background:#755fc5}.empty{padding:17px 10px;color:#788b9b;font-size:14px}@media(max-width:700px){.intro{grid-template-columns:1fr}.level{width:85px;height:85px;font-size:31px}.folder{grid-template-columns:1fr}.folder-head{border-right:0;border-bottom:1px solid var(--line)}.item{grid-template-columns:1fr}.meta{white-space:normal;flex-wrap:wrap}.home span{display:none}}@media(max-width:480px){.shell{width:min(100% - 18px,1060px)}.intro{padding-top:21px}.folder-head{padding:18px}.items{padding:7px}.item{padding:14px 11px}}
 .games-folder{display:block}.games-folder .folder-head{display:flex;align-items:center;gap:15px;cursor:pointer;list-style:none;border:0}.games-folder .folder-head::-webkit-details-marker{display:none}.games-folder .folder-icon{flex:none;margin:0}.games-folder .folder-toggle{margin-left:auto;font-size:26px;color:var(--teal);transition:transform .2s}.games-folder[open] .folder-toggle{transform:rotate(180deg)}.games-folder:not([open]) .folder-head{border-bottom:0}.games-folder[open] .folder-head{border-bottom:1px solid var(--line)}@media(max-width:700px){.games-folder .folder-head{display:flex}}
-.folder{display:block}.folder-head{display:flex;align-items:center;gap:14px;cursor:pointer;list-style:none;border:0}.folder-head::-webkit-details-marker{display:none}.folder-head .folder-icon{flex:none;margin:0}.folder-title{flex:1;min-width:0}.folder-toggle{margin-left:auto;color:var(--teal);font-size:26px;transition:transform .2s}.folder[open] .folder-toggle{transform:rotate(180deg)}.folder[open] .folder-head{border-bottom:1px solid var(--line)}.folder-head:focus-visible,.topic-folder summary:focus-visible{outline:3px solid var(--blue);outline-offset:-3px}.topic-folder{border-bottom:1px solid #e8eef2}.topic-folder:last-child{border-bottom:0}.topic-folder summary{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 10px;cursor:pointer;list-style:none;border-radius:11px}.topic-folder summary::-webkit-details-marker{display:none}.topic-folder summary:hover{background:#f5f8fb}.topic-folder b{font:800 17px Manrope}.topic-folder small{display:block;color:var(--muted);margin-top:4px}.topic-arrow{font-size:22px;color:var(--blue)}.topic-folder[open] .topic-arrow{transform:rotate(180deg)}.topic-content{padding:0 10px 16px}.topic-content a{display:inline-block;background:#e9f0ff;color:#1f55b3;padding:10px 14px;border-radius:9px;font-weight:800}@media(max-width:700px){.folder-head{display:flex}}.game-subfolder{background:#f8fbfd;border-radius:12px}.game-choices{padding:0 10px 13px;display:grid;gap:8px}.game-choices a{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;padding:13px 15px;border:1px solid #d8e4ea;border-radius:11px;background:#fff}.game-choices a:hover{background:#eaf1ff}.game-choices a b{font:800 16px Manrope}.game-choices a small{grid-row:2;color:var(--muted)}.game-choices a span{grid-column:2;grid-row:1/3;color:var(--blue);font-size:21px}.game-subfolder > summary{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:8px 10px}.game-subfolder > summary > .meta{display:flex;align-items:center;gap:7px;white-space:nowrap;margin:0}.game-subfolder > summary > .topic-arrow{margin:0 0 0 2px;flex-shrink:0}</style><link rel="stylesheet" href="/assets/member-ui.css"><style>
-.topic-actions{display:flex;flex-wrap:wrap;gap:9px;align-items:flex-start}
-.topic-actions>a,.topic-actions>details>summary{display:inline-flex;align-items:center;gap:7px;padding:10px 14px;border-radius:9px;font-weight:800;cursor:pointer;list-style:none}
-.topic-actions>details>summary::-webkit-details-marker{display:none}
+.folder{display:block}.folder-head{display:flex;align-items:center;gap:14px;cursor:pointer;list-style:none;border:0}.folder-head::-webkit-details-marker{display:none}.folder-head .folder-icon{flex:none;margin:0}.folder-title{flex:1;min-width:0}.folder-toggle{margin-left:auto;color:var(--teal);font-size:26px;transition:transform .2s}.folder[open] .folder-toggle{transform:rotate(180deg)}.folder[open] .folder-head{border-bottom:1px solid var(--line)}.folder-head:focus-visible,.topic-folder summary:focus-visible{outline:3px solid var(--blue);outline-offset:-3px}.topic-folder{border-bottom:1px solid #e8eef2}.topic-folder:last-child{border-bottom:0}.topic-folder summary{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 10px;cursor:pointer;list-style:none;border-radius:11px}.topic-folder summary::-webkit-details-marker{display:none}.topic-folder summary:hover{background:#f5f8fb}.topic-folder b{font:800 17px Manrope}.topic-folder small{display:block;color:var(--muted);margin-top:4px}.topic-arrow{font-size:22px;color:var(--blue)}.topic-folder[open] .topic-arrow{transform:rotate(180deg)}.topic-content{padding:0 10px 16px}.topic-content a{display:inline-block;background:#e9f0ff;color:#1f55b3;padding:10px 14px;border-radius:9px;font-weight:800}@media(max-width:700px){.folder-head{display:flex}}.game-subfolder{background:#f8fbfd;border-radius:12px}.game-choices{padding:0 10px 13px;display:grid;gap:8px}.game-choices a{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;padding:13px 15px;border:1px solid #d8e4ea;border-radius:11px;background:#fff}.game-choices a:hover{background:#eaf1ff}.game-choices a b{font:800 16px Manrope}.game-choices a small{grid-row:2;color:var(--muted)}.game-choices a span{grid-column:2;grid-row:1/3;color:var(--blue);font-size:21px}.game-subfolder > summary{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:8px 10px}.game-subfolder > summary > .meta{display:flex;align-items:center;gap:7px;white-space:nowrap;margin:0}.game-subfolder > summary > .topic-arrow{margin:0 0 0 2px;flex-shrink:0}
+/* Resource controls share a row; panels occupy their own full-width row. */
+.topic-actions{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin-top:6px}
+.topic-actions>a,.resource-toggle{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;min-height:48px;padding:10px 14px;border:0;border-radius:10px;font-weight:800;line-height:1.4;text-align:left;cursor:pointer;overflow-wrap:anywhere}
 .topic-actions>a{background:#e9f0ff;color:#1f55b3}
-.topic-actions>details{position:relative}
-.topic-actions .worksheets>summary{background:#e4f4f1;color:#08786c}
-.topic-actions .games>summary{background:#f1edff;color:#6549ad}
-.action-menu{position:absolute;z-index:20;top:calc(100% + 7px);left:0;width:max-content;min-width:270px;max-width:360px;padding:7px;background:#fff;border:1px solid #d8e4ea;border-radius:11px;box-shadow:0 12px 30px rgba(31,67,92,.15);display:grid;gap:5px}
-.action-menu a{display:flex!important;justify-content:space-between;gap:12px;padding:10px 12px!important;background:#fff!important;color:#17324d!important;border-radius:8px!important;font-weight:700!important}
-.action-menu a:hover{background:#f5f8fb!important}
-@media(max-width:600px){.topic-actions{align-items:stretch}.topic-actions>a,.topic-actions>details{flex:1 1 100%}.topic-actions>details>summary{width:100%}.action-menu{position:static;width:100%;max-width:none;margin-top:6px}}
-</style><style>
-/* Topic resource menu refinement */
-.topic-folder,
-.topic-content{
-  overflow:visible !important;
-}
-
-.topic-content{
-  position:relative;
-  z-index:1;
-}
-
-.topic-folder[open]{
-  position:relative;
-  z-index:10;
-}
-
-.topic-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  align-items:center;
-  position:relative;
-}
-
-.topic-actions > a,
-.topic-actions > details > summary{
-  min-height:48px;
-  box-sizing:border-box;
-  border:1px solid transparent;
-  transition:
-    transform .15s ease,
-    box-shadow .15s ease,
-    border-color .15s ease;
-}
-
-.topic-actions > a:hover,
-.topic-actions > details > summary:hover{
-  transform:translateY(-1px);
-  box-shadow:0 5px 14px rgba(28,55,80,.08);
-}
-
-.topic-actions > details{
-  position:relative;
-  z-index:30;
-}
-
-.topic-actions > details[open]{
-  z-index:100;
-}
-
-.topic-actions > details[open] > summary{
-  box-shadow:0 0 0 2px rgba(71,91,180,.10);
-}
-
-.action-menu{
-  position:absolute !important;
-  top:calc(100% + 8px) !important;
-  left:0 !important;
-
-  width:330px !important;
-  min-width:330px !important;
-  max-width:min(380px,calc(100vw - 40px)) !important;
-
-  padding:7px !important;
-  margin:0 !important;
-
-  background:#fff !important;
-  border:1px solid #dce5ec !important;
-  border-radius:12px !important;
-
-  box-shadow:
-    0 18px 45px rgba(27,50,70,.16),
-    0 3px 10px rgba(27,50,70,.07) !important;
-
-  display:grid !important;
-  gap:3px !important;
-
-  z-index:9999 !important;
-}
-
-.action-menu a{
-  display:grid !important;
-  grid-template-columns:minmax(0,1fr) auto !important;
-  align-items:center !important;
-
-  min-height:44px !important;
-  padding:10px 11px !important;
-
-  border:0 !important;
-  border-radius:8px !important;
-
-  background:#fff !important;
-  color:#17324d !important;
-
-  font-size:15px !important;
-  line-height:1.35 !important;
-  font-weight:700 !important;
-
-  text-decoration:none !important;
-}
-
-.action-menu a + a{
-  border-top:1px solid #edf1f4 !important;
-  border-radius:0 0 8px 8px !important;
-}
-
-.action-menu a:hover{
-  background:#f6f8fb !important;
-}
-
-.action-menu a > span:first-child{
-  min-width:0;
-}
-
-.action-menu a > span:last-child{
-  margin-left:12px;
-  font-size:18px;
-  opacity:.65;
-}
-
-@media(max-width:700px){
-  .topic-actions{
-    align-items:stretch;
-  }
-
-  .action-menu{
-    left:0 !important;
-    width:min(330px,calc(100vw - 40px)) !important;
-    min-width:0 !important;
-  }
-}
-</style><style>
-.topic-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  align-items:flex-start;
-  margin-top:6px;
-}
-
-.topic-actions > a,
-.topic-actions summary{
-  display:inline-flex !important;
-  align-items:center;
-  gap:7px;
-  min-height:46px;
-  box-sizing:border-box;
-  padding:10px 16px !important;
-  border-radius:10px !important;
-  font-weight:800 !important;
-  cursor:pointer;
-  list-style:none;
-  text-decoration:none !important;
-}
-
-.topic-actions summary::-webkit-details-marker{
-  display:none;
-}
-
-.topic-actions > a{
-  background:#e9f0ff !important;
-  color:#1f55b3 !important;
-}
-
-.topic-actions .worksheets > summary{
-  background:#e5f4f1 !important;
-  color:#08786c !important;
-}
-
-.topic-actions .games > summary{
-  background:#f1edff !important;
-  color:#6549ad !important;
-}
-
-.topic-actions details{
-  display:contents;
-}
-
-.resource-panel{
-  flex-basis:100%;
-  width:100%;
-  box-sizing:border-box;
-  margin-top:2px;
-  padding:10px;
-  background:#f8fafc;
-  border:1px solid #dce5ec;
-  border-radius:12px;
-}
-
-.resource-panel a{
-  display:flex !important;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:11px 13px !important;
-  margin:0 !important;
-  background:#fff !important;
-  color:#17324d !important;
-  border-radius:8px !important;
-  font-size:15px !important;
-  line-height:1.35 !important;
-  font-weight:700 !important;
-  text-decoration:none !important;
-}
-
-.resource-panel a + a{
-  margin-top:6px !important;
-}
-
-.resource-panel a:hover{
-  background:#eef3f7 !important;
-}
-
-@media(max-width:650px){
-  .topic-actions > a,
-  .topic-actions summary{
-    padding:9px 12px !important;
-    font-size:14px;
-  }
-}
-</style><style>
-/* FIX: topic cards must grow when resource panels open */
-.level-folder,
-.folder-content,
-.topic-folder,
-.topic-content{
-  max-height:none !important;
-}
-
-.topic-folder,
-.topic-content,
-.folder-content{
-  overflow:visible !important;
-}
-
-.topic-actions{
-  display:flex !important;
-  flex-wrap:wrap !important;
-  align-items:flex-start !important;
-}
-
-.topic-actions details{
-  display:block !important;
-}
-
-.topic-actions details[open]{
-  flex-basis:100% !important;
-  width:100% !important;
-}
-
-.topic-actions details[open] > summary{
-  width:max-content !important;
-}
-
-.topic-actions details[open] .resource-panel{
-  display:block !important;
-  position:static !important;
-  width:100% !important;
-  max-width:none !important;
-  box-sizing:border-box !important;
-  margin-top:10px !important;
-}
-
-.topic-actions details:not([open]) .resource-panel{
-  display:none !important;
-}
-</style><style>
-/* FINAL RESOURCE LAYOUT FIX */
-
-.topic-folder{
-  overflow:visible !important;
-}
-
-.topic-content{
-  overflow:visible !important;
-  height:auto !important;
-  max-height:none !important;
-}
-
-.topic-actions{
-  display:flex !important;
-  flex-wrap:wrap !important;
-  gap:10px !important;
-  align-items:flex-start !important;
-  width:100% !important;
-}
-
-/* CLOSED STATE: buttons stay horizontal */
-.topic-actions > a{
-  flex:0 0 auto !important;
-}
-
-.topic-actions > details{
-  display:block !important;
-  flex:0 0 auto !important;
-  width:auto !important;
-  position:static !important;
-}
-
-/* OPEN STATE: details takes a new full row */
-.topic-actions > details[open]{
-  flex:1 0 100% !important;
-  width:100% !important;
-  display:grid !important;
-  grid-template-columns:max-content !important;
-  position:static !important;
-}
-
-/* keep summary looking like a button */
-.topic-actions > details > summary{
-  width:max-content !important;
-  box-sizing:border-box !important;
-}
-
-/* resource list lives in normal page flow */
-.topic-actions > details[open] > .resource-panel{
-  position:static !important;
-  display:grid !important;
-  width:100% !important;
-  max-width:none !important;
-  min-width:0 !important;
-  box-sizing:border-box !important;
-
-  margin:10px 0 4px 0 !important;
-  padding:8px !important;
-
-  background:#f7f9fb !important;
-  border:1px solid #dbe4eb !important;
-  border-radius:11px !important;
-
-  box-shadow:none !important;
-  z-index:auto !important;
-}
-
-/* resource rows */
-.resource-panel a{
-  position:static !important;
-  display:flex !important;
-  width:100% !important;
-  box-sizing:border-box !important;
-  align-items:center !important;
-  justify-content:space-between !important;
-
-  padding:11px 13px !important;
-  margin:0 !important;
-
-  background:#fff !important;
-  border-radius:8px !important;
-
-  line-height:1.35 !important;
-}
-
-.resource-panel a + a{
-  margin-top:6px !important;
-}
-
-/* topic itself must grow */
-.topic-folder[open] > .topic-content{
-  display:block !important;
-  height:auto !important;
-  overflow:visible !important;
-}
-
-/* prevent next topic from floating into opened resources */
-.topic-folder + .topic-folder{
-  clear:both !important;
-}
-
-@media(max-width:650px){
-  .topic-actions{
-    gap:8px !important;
-  }
-
-  .topic-actions > a,
-  .topic-actions > details > summary{
-    font-size:14px !important;
-  }
-}
-</style></head><body><header class="shell top"><a class="brand" href="/"><span class="mark">TA</span>Turkish with Akın</a><div class="tools"><a class="home" href="/"><span data-en="← Home" data-tr="← Ana sayfa">← Home</span></a><div class="lang"><button data-lang="en" class="active">EN</button><button data-lang="tr">TR</button></div></div><a class="member-link" href="/hesabim/" data-en="Log in / Sign up" data-tr="Giriş / Üye ol">Log in / Sign up</a></header><main class="shell"><section class="intro"><div><div class="eyebrow" data-en="Organized by content type" data-tr="İçerik türüne göre düzenlendi">Organized by content type</div><h1 data-en="B1 Turkish Library" data-tr="B1 Türkçe Kütüphanesi">B1 Turkish Library</h1><p data-en="Choose a lesson, practise the same topic through games, then meet it again in a reading text. Every resource clearly shows its topic and activity type." data-tr="Önce konu anlatımını seç, aynı konuyu oyunlarla pekiştir, ardından okuma metninde yeniden gör. Her içerikte konu ve etkinlik türü açıkça belirtilir.">Choose a lesson, practise the same topic through games, then meet it again in a reading text. Every resource clearly shows its topic and activity type.</p></div><div class="level">B1</div></section><section class="library">
+.resource-toggle.worksheets{background:#e5f4f1;color:#08786c}
+.resource-toggle.games{background:#f1edff;color:#6549ad}
+.resource-toggle[aria-expanded="true"]{box-shadow:inset 0 0 0 2px rgba(71,91,180,.15)}
+.resource-toggle[aria-expanded="true"] .resource-arrow{transform:rotate(180deg)}
+.topic-actions>a:focus-visible,.resource-toggle:focus-visible,.resource-panel a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.resource-panel{display:grid;gap:6px;width:100%;margin-top:10px;padding:8px;background:#f8fafc;border:1px solid #dce5ec;border-radius:12px}
+.resource-panel[hidden]{display:none}
+.resource-panel a{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;min-height:44px;padding:11px 13px;background:#fff;color:var(--ink);border-radius:8px;font-size:15px;line-height:1.4;font-weight:700;overflow-wrap:anywhere}
+.resource-panel a:hover{background:#eef3f7}
+.resource-panel a>span:first-child{min-width:0}
+.resource-panel a>span:last-child{font-size:18px;opacity:.65}
+@media(max-width:700px){.topic-actions>a,.resource-toggle{flex:1 1 100%}}
+</style><link rel="stylesheet" href="/assets/member-ui.css"></head><body><header class="shell top"><a class="brand" href="/"><span class="mark">TA</span>Turkish with Akın</a><div class="tools"><a class="home" href="/"><span data-en="← Home" data-tr="← Ana sayfa">← Home</span></a><div class="lang"><button data-lang="en" class="active">EN</button><button data-lang="tr">TR</button></div></div><a class="member-link" href="/hesabim/" data-en="Log in / Sign up" data-tr="Giriş / Üye ol">Log in / Sign up</a></header><main class="shell"><section class="intro"><div><div class="eyebrow" data-en="Organized by content type" data-tr="İçerik türüne göre düzenlendi">Organized by content type</div><h1 data-en="B1 Turkish Library" data-tr="B1 Türkçe Kütüphanesi">B1 Turkish Library</h1><p data-en="Choose a lesson, practise the same topic through games, then meet it again in a reading text. Every resource clearly shows its topic and activity type." data-tr="Önce konu anlatımını seç, aynı konuyu oyunlarla pekiştir, ardından okuma metninde yeniden gör. Her içerikte konu ve etkinlik türü açıkça belirtilir.">Choose a lesson, practise the same topic through games, then meet it again in a reading text. Every resource clearly shows its topic and activity type.</p></div><div class="level">B1</div></section><section class="library">
 <details class="folder"><summary class="folder-head"><div class="folder-icon">01</div><div class="folder-title"><h2 data-en="B1 · Lessons" data-tr="B1 · Konu Anlatımı">B1 · Lessons</h2><p data-en="Clear explanations and examples" data-tr="Açık anlatım ve örnekler">Clear explanations and examples</p></div><span class="folder-toggle" aria-hidden="true">⌄</span></summary><div class="items"><details class="topic-folder"><summary><span><b data-en="Converbs · -(y)ArAk, -A…-A, -(y)Ip, -(y)ken" data-tr="Zarf-Fiiller · -(y)ArAk, -A…-A, -(y)Ip, -(y)ken">Converbs · -(y)ArAk, -A…-A, -(y)Ip, -(y)ken</b><small data-en="Meaning, examples and common mistakes" data-tr="Anlam, örnekler ve sık yapılan hatalar">Meaning, examples and common mistakes</small></span><span class="topic-arrow" aria-hidden="true">⌄</span></summary><div class="topic-content"><div class="topic-actions">
 <a href="/dersler/zarf-fiiller/" data-en="Open the lesson →" data-tr="Konu anlatımını aç →">Open the lesson →</a>
-<details class="games"><summary><span data-en="Games" data-tr="Konuyla ilgili oyunlar">Games</span> ▾</summary><div class="action-menu">
+<button type="button" class="resource-toggle games" id="b1-resource-1-toggle" aria-expanded="false" aria-controls="b1-resource-1"><span data-en="Games" data-tr="Konuyla ilgili oyunlar">Games</span><span class="resource-arrow" aria-hidden="true">▾</span></button>
+</div>
+<div class="resource-panel" id="b1-resource-1" role="region" aria-labelledby="b1-resource-1-toggle" hidden>
 <a href="/oyunlar/zarf-fiiller/"><span data-en="Converb Challenge · Sentence Completion" data-tr="Zarf-Fiil Oyunu · Cümle Tamamlama">Converb Challenge · Sentence Completion</span><span>→</span></a>
 <a href="/oyunlar/kayip-dosya/"><span data-en="The Missing File · Converb Investigation" data-tr="Kayıp Dosya · Zarf-Fiil Araştırması">The Missing File · Converb Investigation</span><span>→</span></a>
-</div></details>
-</div></div></details><details class="topic-folder"><summary><span><b data-en="Past Continuous · -(I)yordu" data-tr="Şimdiki Zamanın Hikâyesi · -(I)yordu">Past Continuous · -(I)yordu</b><small data-en="Past actions in progress, simultaneous events and narrative background" data-tr="Geçmişte devam eden eylemler, eş zamanlılık ve hikâye arka planı">Past actions in progress, simultaneous events and narrative background</small></span><span class="topic-arrow" aria-hidden="true">⌄</span></summary><div class="topic-content"><div class="topic-actions">
+</div>
+</div></details><details class="topic-folder"><summary><span><b data-en="Past Continuous · -(I)yordu" data-tr="Şimdiki Zamanın Hikâyesi · -(I)yordu">Past Continuous · -(I)yordu</b><small data-en="Past actions in progress, simultaneous events and narrative background" data-tr="Geçmişte devam eden eylemler, eş zamanlılık ve hikâye arka planı">Past actions in progress, simultaneous events and narrative background</small></span><span class="topic-arrow" aria-hidden="true">⌄</span></summary><div class="topic-content"><div class="topic-actions">
 <a href="/dersler/simdiki-zamanin-hikayesi/" data-en="Open the lesson →" data-tr="Konu anlatımını aç →">Open the lesson →</a>
-<details class="worksheets"><summary><span data-en="Worksheets" data-tr="Çalışma kâğıtları">Worksheets</span> ▾</summary><div class="action-menu">
+<button type="button" class="resource-toggle worksheets" id="b1-resource-2-toggle" aria-expanded="false" aria-controls="b1-resource-2"><span data-en="Worksheets" data-tr="Çalışma kâğıtları">Worksheets</span><span class="resource-arrow" aria-hidden="true">▾</span></button>
+<button type="button" class="resource-toggle games" id="b1-resource-3-toggle" aria-expanded="false" aria-controls="b1-resource-3"><span data-en="Games for this topic" data-tr="Konuyla ilgili oyunlar">Games for this topic</span><span class="resource-arrow" aria-hidden="true">▾</span></button>
+</div>
+<div class="resource-panel" id="b1-resource-2" role="region" aria-labelledby="b1-resource-2-toggle" hidden>
 <a href="/dersler/iyordu/calisma-kagidi.pdf" target="_blank" rel="noopener"><span data-en="Time Machine · -(I)yordu Worksheet" data-tr="Zaman Makinesi · -(I)yordu Çalışma Kâğıdı">Time Machine · -(I)yordu Worksheet</span><span>→</span></a>
-</div></details>
-<details class="games"><summary><span data-en="Games for this topic" data-tr="Konuyla ilgili oyunlar">Games for this topic</span> ▾</summary><div class="action-menu">
+</div>
+<div class="resource-panel" id="b1-resource-3" role="region" aria-labelledby="b1-resource-3-toggle" hidden>
 <a href="/oyunlar/dil-dedektifi-olay-yeri-v2/"><span data-en="Language Detective: Crime Scene" data-tr="Dil Dedektifi: Olay Yeri">Language Detective: Crime Scene</span><span>→</span></a>
 <a href="/oyunlar/iyordu_GUNCELLENMIS_OYUN/"><span data-en="Past Continuous · Visual Practice" data-tr="Şimdiki Zamanın Hikâyesi · Görsel Uygulama">Past Continuous · Visual Practice</span><span>→</span></a>
-</div></details>
-</div></div></details></div></details>
+</div>
+</div></details></div></details>
 <details class="folder games-folder" id="games"><summary class="folder-head"><span class="folder-icon">02</span><div class="folder-title"><h2 data-en="B1 · Games" data-tr="B1 · Oyunları">B1 · Games</h2><p data-en="Open the folder to see all 6 games" data-tr="6 oyunu görmek için klasörü aç">Open the folder to see all 6 games</p></div><span class="folder-toggle" aria-hidden="true">⌄</span></summary><div class="items"><a class="item" href="/oyunlar/zarf-fiiller/"><span><b data-en="Converb Challenge · Multiple Choice" data-tr="Zarf-Fiil Oyunu · Cümle Tamamlama">Converb Challenge · Multiple Choice</b><small data-en="Complete 10 sentences and choose between -(y)Ip, -(y)ArAk and -A…-A." data-tr="10 soruda cümleleri tamamla; -(y)Ip, -(y)ArAk ve -A…-A yapılarını ayırt et.">Complete 10 sentences and choose between -(y)Ip, -(y)ArAk and -A…-A.</small></span><span class="meta"><i class="topic" data-en="Converbs" data-tr="Zarf-Fiiller">Converbs</i><i class="type" data-en="Multiple choice" data-tr="Çoktan seçmeli">Multiple choice</i><i class="arrow">→</i></span></a><details class="topic-folder game-subfolder"><summary><span><b data-en="Letter Ring · B1 Vocabulary Game" data-tr="Harf Halkası · B1 Kelime Oyunu">Letter Ring · B1 Vocabulary Game</b><small data-en="Two 29-letter classroom challenges · 5 minutes per game" data-tr="İki ayrı 29 harflik sınıf yarışması · Her oyun 5 dakika">Two 29-letter classroom challenges · 5 minutes per game</small></span><span class="meta"><i class="topic" data-en="B1 Vocabulary" data-tr="B1 Kelime Bilgisi">B1 Vocabulary</i><i class="type" data-en="Word Competition" data-tr="Kelime Yarışması">Word Competition</i></span><span class="topic-arrow" aria-hidden="true">⌄</span></summary><div class="game-choices"><a href="/oyunlar/harf-halkasi/"><b data-en="1st Game · Everyday words & ideas" data-tr="1. Oyun · Günlük kelimeler ve düşünceler">1st Game · Everyday words & ideas</b><small data-en="Habit, curiosity, tradition and more" data-tr="Alışkanlık, merak, gelenek ve daha fazlası">Habit, curiosity, tradition and more</small><span aria-hidden="true">→</span></a><a href="/oyunlar/harf-halkasi/2/"><b data-en="2nd Game · Everyday Turkish" data-tr="2. Oyun · Günlük Türkçe">2nd Game · Everyday Turkish</b><small data-en="Distinct words at a similar level" data-tr="Benzer düzeyde farklı kelimeler">Distinct words at a similar level</small><span aria-hidden="true">→</span></a></div></details><a class="item" href="/oyunlar/kayip-dosya/"><span><b data-en="The Missing File · Converb Investigation" data-tr="Kayıp Dosya · Zarf-Fiil Araştırması">The Missing File · Converb Investigation</b><small data-en="Examine evidence, reconstruct events and write a reasoned report." data-tr="Kanıtları incele, olayları sırala ve gerekçeli rapor yaz.">Examine evidence, reconstruct events and write a reasoned report.</small></span><span class="meta"><i class="topic" data-en="Converbs" data-tr="Zarf-Fiiller">Converbs</i><i class="type" data-en="Detective game" data-tr="Dedektif oyunu">Detective game</i><i class="arrow">→</i></span></a><a class="item" href="/oyunlar/dil-dedektifi-olay-yeri-v2/"><span><b data-en="Language Detective: Crime Scene · Past Continuous Investigation" data-tr="Dil Dedektifi: Olay Yeri · -(I)yordu Araştırması">Language Detective: Crime Scene · Past Continuous Investigation</b><small data-en="Investigate the 20:15 blackout, compare witness statements and rebuild the evidence chain." data-tr="20.15'teki elektrik kesintisini araştır, tanık ifadelerini karşılaştır ve kanıt zincirini yeniden kur.">Investigate the 20:15 blackout, compare witness statements and rebuild the evidence chain.</small></span><span class="meta"><i class="topic" data-en="Past continuous" data-tr="Şimdiki Zamanın Hikâyesi">Past continuous</i><i class="type" data-en="Detective game" data-tr="Dedektif oyunu">Detective game</i><i class="arrow">→</i></span></a><a class="item" href="/oyunlar/iyordu_GUNCELLENMIS_OYUN/"><span><b data-en="Past Continuous · -(I)yordu · Visual Practice" data-tr="Şimdiki Zamanın Hikâyesi · -(I)yordu · Görsel Uygulama">Past Continuous · -(I)yordu · Visual Practice</b><small data-en="Explore past actions in progress through visual explanations and interactive activities." data-tr="Geçmişte devam eden eylemleri görsel anlatımlar ve etkileşimli uygulamalarla keşfet.">Explore past actions in progress through visual explanations and interactive activities.</small></span><span class="meta"><i class="topic" data-en="Past continuous" data-tr="Şimdiki Zamanın Hikâyesi">Past continuous</i><i class="type" data-en="Visual practice" data-tr="Görsel uygulama">Visual practice</i><i class="arrow">→</i></span></a></div></details>
 <details class="folder"><summary class="folder-head"><div class="folder-icon">03</div><div class="folder-title"><h2 data-en="B1 · Reading Texts" data-tr="B1 · Okuma Metinleri">B1 · Reading Texts</h2><p data-en="Texts and comprehension tasks" data-tr="Metinler ve anlama çalışmaları">Texts and comprehension tasks</p></div><span class="folder-toggle" aria-hidden="true">⌄</span></summary><div class="items"><details class="topic-folder"><summary><span><b data-en="A New Adventure in Istanbul · Converbs" data-tr="İstanbul'da Yeni Bir Serüven · Zarf-Fiiller">A New Adventure in Istanbul · Converbs</b><small data-en="Reading, comprehension and true–false" data-tr="Metin, okuma-anlama ve doğru–yanlış">Reading, comprehension and true–false</small></span><span class="topic-arrow" aria-hidden="true">⌄</span></summary><div class="topic-content"><a href="/okuma/istanbulda-yeni-bir-seruven/" data-en="Open the reading text →" data-tr="Okuma metnini aç →">Open the reading text →</a></div></details></div></details>
 <details class="folder"><summary class="folder-head"><div class="folder-icon">04</div><div class="folder-title"><h2 data-en="B1 · Listening Activities" data-tr="B1 · Dinleme Etkinlikleri">B1 · Listening Activities</h2><p data-en="Audio, listening tasks and transcripts" data-tr="Ses kayıtları, dinleme görevleri ve metinler">Audio, listening tasks and transcripts</p></div><span class="folder-toggle" aria-hidden="true">⌄</span></summary><div class="items"><div class="empty" data-en="The first B1 listening activity will be added here." data-tr="İlk B1 dinleme etkinliği buraya eklenecek.">The first B1 listening activity will be added here.</div></div></details>
-</section><div class="guide"><b data-en="Recommended order:" data-tr="Önerilen sıra:">Recommended order:</b> <span data-en="Lesson → games → reading → listening." data-tr="Konu anlatımı → oyunlar → okuma → dinleme.">Lesson → games → reading → listening.</span></div></main><footer class="shell foot">Turkish with Akın · B1</footer><script>const buttons=document.querySelectorAll('[data-lang]');function setLanguage(lang){document.documentElement.lang=lang;document.querySelectorAll('[data-en][data-tr]').forEach(el=>el.innerHTML=el.dataset[lang]);buttons.forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));try{localStorage.setItem('turkishMateLanguage',lang)}catch(e){}}buttons.forEach(b=>b.onclick=()=>setLanguage(b.dataset.lang));let saved='en';try{saved=localStorage.getItem('turkishMateLanguage')||'en'}catch(e){}setLanguage(saved==='tr'?'tr':'en');</script><script type="module" src="/assets/identity.js"></script></body></html>
+</section><div class="guide"><b data-en="Recommended order:" data-tr="Önerilen sıra:">Recommended order:</b> <span data-en="Lesson → games → reading → listening." data-tr="Konu anlatımı → oyunlar → okuma → dinleme.">Lesson → games → reading → listening.</span></div></main><footer class="shell foot">Turkish with Akın · B1</footer><script>const buttons=document.querySelectorAll('[data-lang]');function setLanguage(lang){document.documentElement.lang=lang;document.querySelectorAll('[data-en][data-tr]').forEach(el=>el.innerHTML=el.dataset[lang]);buttons.forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));try{localStorage.setItem('turkishMateLanguage',lang)}catch(e){}}buttons.forEach(b=>b.onclick=()=>setLanguage(b.dataset.lang));let saved='en';try{saved=localStorage.getItem('turkishMateLanguage')||'en'}catch(e){}setLanguage(saved==='tr'?'tr':'en');</script><script type="module" src="/assets/identity.js"></script><script>
+document.querySelectorAll('.resource-toggle').forEach(button=>{
+  button.addEventListener('click',()=>{
+    const panel=document.getElementById(button.getAttribute('aria-controls'));
+    const expanded=button.getAttribute('aria-expanded')==='true';
+    button.setAttribute('aria-expanded',String(!expanded));
+    panel.hidden=expanded;
+  });
+});
+</script></body></html>
