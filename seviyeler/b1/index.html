@@ -235,6 +235,164 @@
     font-size:14px;
   }
 }
+</style><style>
+/* FIX: topic cards must grow when resource panels open */
+.level-folder,
+.folder-content,
+.topic-folder,
+.topic-content{
+  max-height:none !important;
+}
+
+.topic-folder,
+.topic-content,
+.folder-content{
+  overflow:visible !important;
+}
+
+.topic-actions{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  align-items:flex-start !important;
+}
+
+.topic-actions details{
+  display:block !important;
+}
+
+.topic-actions details[open]{
+  flex-basis:100% !important;
+  width:100% !important;
+}
+
+.topic-actions details[open] > summary{
+  width:max-content !important;
+}
+
+.topic-actions details[open] .resource-panel{
+  display:block !important;
+  position:static !important;
+  width:100% !important;
+  max-width:none !important;
+  box-sizing:border-box !important;
+  margin-top:10px !important;
+}
+
+.topic-actions details:not([open]) .resource-panel{
+  display:none !important;
+}
+</style><style>
+/* FINAL RESOURCE LAYOUT FIX */
+
+.topic-folder{
+  overflow:visible !important;
+}
+
+.topic-content{
+  overflow:visible !important;
+  height:auto !important;
+  max-height:none !important;
+}
+
+.topic-actions{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:10px !important;
+  align-items:flex-start !important;
+  width:100% !important;
+}
+
+/* CLOSED STATE: buttons stay horizontal */
+.topic-actions > a{
+  flex:0 0 auto !important;
+}
+
+.topic-actions > details{
+  display:block !important;
+  flex:0 0 auto !important;
+  width:auto !important;
+  position:static !important;
+}
+
+/* OPEN STATE: details takes a new full row */
+.topic-actions > details[open]{
+  flex:1 0 100% !important;
+  width:100% !important;
+  display:grid !important;
+  grid-template-columns:max-content !important;
+  position:static !important;
+}
+
+/* keep summary looking like a button */
+.topic-actions > details > summary{
+  width:max-content !important;
+  box-sizing:border-box !important;
+}
+
+/* resource list lives in normal page flow */
+.topic-actions > details[open] > .resource-panel{
+  position:static !important;
+  display:grid !important;
+  width:100% !important;
+  max-width:none !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+
+  margin:10px 0 4px 0 !important;
+  padding:8px !important;
+
+  background:#f7f9fb !important;
+  border:1px solid #dbe4eb !important;
+  border-radius:11px !important;
+
+  box-shadow:none !important;
+  z-index:auto !important;
+}
+
+/* resource rows */
+.resource-panel a{
+  position:static !important;
+  display:flex !important;
+  width:100% !important;
+  box-sizing:border-box !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+
+  padding:11px 13px !important;
+  margin:0 !important;
+
+  background:#fff !important;
+  border-radius:8px !important;
+
+  line-height:1.35 !important;
+}
+
+.resource-panel a + a{
+  margin-top:6px !important;
+}
+
+/* topic itself must grow */
+.topic-folder[open] > .topic-content{
+  display:block !important;
+  height:auto !important;
+  overflow:visible !important;
+}
+
+/* prevent next topic from floating into opened resources */
+.topic-folder + .topic-folder{
+  clear:both !important;
+}
+
+@media(max-width:650px){
+  .topic-actions{
+    gap:8px !important;
+  }
+
+  .topic-actions > a,
+  .topic-actions > details > summary{
+    font-size:14px !important;
+  }
+}
 </style></head><body><header class="shell top"><a class="brand" href="/"><span class="mark">TA</span>Turkish with Akın</a><div class="tools"><a class="home" href="/"><span data-en="← Home" data-tr="← Ana sayfa">← Home</span></a><div class="lang"><button data-lang="en" class="active">EN</button><button data-lang="tr">TR</button></div></div><a class="member-link" href="/hesabim/" data-en="Log in / Sign up" data-tr="Giriş / Üye ol">Log in / Sign up</a></header><main class="shell"><section class="intro"><div><div class="eyebrow" data-en="Organized by content type" data-tr="İçerik türüne göre düzenlendi">Organized by content type</div><h1 data-en="B1 Turkish Library" data-tr="B1 Türkçe Kütüphanesi">B1 Turkish Library</h1><p data-en="Choose a lesson, practise the same topic through games, then meet it again in a reading text. Every resource clearly shows its topic and activity type." data-tr="Önce konu anlatımını seç, aynı konuyu oyunlarla pekiştir, ardından okuma metninde yeniden gör. Her içerikte konu ve etkinlik türü açıkça belirtilir.">Choose a lesson, practise the same topic through games, then meet it again in a reading text. Every resource clearly shows its topic and activity type.</p></div><div class="level">B1</div></section><section class="library">
 <details class="folder"><summary class="folder-head"><div class="folder-icon">01</div><div class="folder-title"><h2 data-en="B1 · Lessons" data-tr="B1 · Konu Anlatımı">B1 · Lessons</h2><p data-en="Clear explanations and examples" data-tr="Açık anlatım ve örnekler">Clear explanations and examples</p></div><span class="folder-toggle" aria-hidden="true">⌄</span></summary><div class="items"><details class="topic-folder"><summary><span><b data-en="Converbs · -(y)ArAk, -A…-A, -(y)Ip, -(y)ken" data-tr="Zarf-Fiiller · -(y)ArAk, -A…-A, -(y)Ip, -(y)ken">Converbs · -(y)ArAk, -A…-A, -(y)Ip, -(y)ken</b><small data-en="Meaning, examples and common mistakes" data-tr="Anlam, örnekler ve sık yapılan hatalar">Meaning, examples and common mistakes</small></span><span class="topic-arrow" aria-hidden="true">⌄</span></summary><div class="topic-content"><div class="topic-actions">
 <a href="/dersler/zarf-fiiller/" data-en="Open the lesson →" data-tr="Konu anlatımını aç →">Open the lesson →</a>
