@@ -33,3 +33,6 @@
 .completion-option b{display:block;font:800 17px Manrope}
 .completion-option small{display:block;color:var(--muted);margin-top:4px}
 .completion-option .arrow{font-size:20px;color:var(--blue)}
+
+/* Micro alignment: keep Lesson/Konu visually centered with the other resource buttons. */
+.topic-action.lesson .action-label{position:relative;top:1px}

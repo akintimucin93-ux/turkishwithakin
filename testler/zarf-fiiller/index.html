@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zarf-Fiiller · Kendini Test Et — Revize Önizleme</title>
+<style>
+:root{
+  --ink:#17324d;--muted:#64778a;--paper:#f3f7fa;--white:#fff;
+  --blue:#3169d8;--blue-soft:#edf3ff;--green:#159c8c;--green-soft:#edf8f3;
+  --purple:#755fc5;--purple-soft:#f3effd;--orange:#c87832;--orange-soft:#fff3e9;
+  --line:#d8e4ea;--good:#1b8a68;--good-bg:#eef9f5;--bad:#b94e49;--bad-bg:#fff2f1;
+  --shadow:0 18px 46px rgba(31,67,92,.11)
+}
+*{box-sizing:border-box}
+body{
+  margin:0;color:var(--ink);font:16px/1.55 Arial,sans-serif;
+  background:radial-gradient(circle at 95% 0,rgba(49,105,216,.09),transparent 26%),linear-gradient(180deg,#f7fafc,var(--paper));
+}
+button,input{font:inherit}.shell{width:min(940px,calc(100% - 28px));margin:auto}
+.top{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}.mark{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--blue);color:#fff;font-size:12px;box-shadow:0 8px 20px rgba(49,105,216,.2)}
+.lang{display:flex;gap:5px;padding:4px;background:#fff;border:1px solid var(--line);border-radius:12px}.lang button{border:0;background:transparent;padding:7px 10px;border-radius:8px;font-weight:800;color:var(--muted);cursor:pointer}.lang button.active{background:var(--ink);color:#fff}
+.hero{padding:34px 0 24px}.kicker{font-size:12px;font-weight:900;letter-spacing:.12em;color:var(--orange)}h1{font-size:clamp(34px,5vw,48px);line-height:1.05;margin:8px 0 10px}.hero p{margin:0;color:var(--muted);max-width:750px;font-size:17px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.tag{padding:7px 10px;border-radius:10px;font-size:12px;font-weight:900;border:1px solid}.t1{background:var(--blue-soft);border-color:#d4e1fb;color:#2858a8}.t2{background:var(--green-soft);border-color:#d2eade;color:#20755a}.t3{background:var(--purple-soft);border-color:#e0d7f8;color:#6a4eaf}.t4{background:var(--orange-soft);border-color:#f2dcc8;color:#a55d27}
+.quiz{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:34px}
+.quiz-top{padding:18px 22px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center}
+.progress-meta{display:flex;justify-content:space-between;gap:14px;color:var(--muted);font-size:13px;font-weight:800;margin-bottom:8px}.progress{height:9px;background:#edf2f5;border-radius:999px;overflow:hidden}.progress>div{height:100%;width:10%;background:linear-gradient(90deg,#3169d8,#5b84df);border-radius:999px;transition:.25s}
+.score{min-width:96px;text-align:center;padding:10px 12px;border:1px solid var(--line);background:#f8fbfd;border-radius:13px;font-size:13px;font-weight:900}
+.qwrap{padding:30px 24px 26px}.qtype{display:inline-flex;align-items:center;gap:7px;padding:6px 9px;border-radius:9px;background:#f6f9fb;border:1px solid #e3ebef;color:#557084;font-size:12px;font-weight:900;margin-bottom:12px}
+.question{font-size:24px;line-height:1.35;font-weight:850;margin-bottom:9px}.function-note{color:var(--muted);font-size:14px;margin-bottom:20px}.function-note b{color:var(--ink)}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.answer{min-height:62px;border:1px solid var(--line);background:#fff;border-radius:15px;padding:13px 14px;text-align:left;display:flex;align-items:center;gap:12px;cursor:pointer;font-weight:750;color:var(--ink);transition:.14s}.answer:hover{transform:translateY(-1px);border-color:#b8cad8;background:#fbfdff;box-shadow:0 6px 18px rgba(31,67,92,.06)}
+.answer .key{width:31px;height:31px;border-radius:9px;background:#f0f4f7;color:#52697c;display:grid;place-items:center;font-size:13px;font-weight:900;flex:none}.answer.correct{background:var(--good-bg);border-color:#a8dccd;color:#176c50}.answer.correct .key{background:#d5f0e7;color:#176c50}.answer.wrong{background:var(--bad-bg);border-color:#e8bbb7;color:#a4443f}.answer.wrong .key{background:#f6d8d5;color:#a4443f}
+.fillbox{display:grid;gap:12px}.sentence{border:1px solid var(--line);border-radius:15px;padding:18px;background:#fbfdff;font-size:20px;font-weight:800}.fill-help{font-size:13px;color:var(--muted);margin-top:-3px}.fill-help strong{color:var(--ink)}
+.fillrow{display:flex;gap:10px}.fillrow input{
+  flex:1;border:1px solid #b9c8d3;border-radius:12px;padding:13px 14px;outline:none;
+  color:#17324d;background:#fff;font-weight:800;caret-color:#17324d
+}.fillrow input:focus{border-color:#7f9db8;box-shadow:0 0 0 3px rgba(49,105,216,.10)}
+.fillrow input::placeholder{color:#8a9aa8;font-weight:600;opacity:1}.checkbtn{border:0;background:var(--ink);color:#fff;border-radius:12px;padding:12px 16px;font-weight:900;cursor:pointer}
+.tf{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tf button{min-height:70px;border:1px solid var(--line);background:#fff;border-radius:15px;padding:14px 16px;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;font-size:17px}.tf .yes .symbol{color:var(--good);font-size:22px}.tf .no .symbol{color:var(--bad);font-size:22px}.tf button:hover{background:#f8fbfd}
+.feedback{display:none;margin-top:16px;border-radius:13px;padding:13px 14px;font-size:14px}.feedback.show{display:block}.feedback.good{background:var(--good-bg);border:1px solid #c9e9df;color:#176c50}.feedback.bad{background:var(--bad-bg);border:1px solid #efd2cf;color:#93423e}.feedback b{display:block;margin-bottom:2px}
+.bottom{padding:17px 22px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}.micro{font-size:13px;color:var(--muted)}.next{border:0;border-radius:12px;background:var(--blue);color:#fff;padding:11px 17px;font-weight:900;cursor:pointer;opacity:.4;pointer-events:none}.next.enabled{opacity:1;pointer-events:auto}
+.result,.review{display:none;padding:34px 24px 30px}.result.show,.review.show{display:block}.result-head{text-align:center;margin-bottom:24px}.result-score{font-size:62px;line-height:1;font-weight:950;color:var(--blue)}.result h2{font-size:28px;margin:9px 0 6px}.result p{color:var(--muted);margin:0}
+.breakdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0}.skill{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fbfdff}.skill small{display:block;color:var(--muted);margin-bottom:5px}.skill b{font-size:18px}
+.result-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.result-actions button{border:0;border-radius:11px;padding:11px 15px;font-weight:900;cursor:pointer}.restart{background:var(--ink);color:#fff}.wrong-review{background:#fff0ef;color:#93423e;border:1px solid #efd2cf!important}.lessonback{background:#eef3f7;color:var(--ink)}
+.review h2{margin-top:0}.review-item{border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px;background:#fbfdff}.review-item b{display:block;margin-bottom:5px}.review-item .your{color:var(--bad)}.review-item .correcta{color:var(--good)}.back-result{border:0;background:var(--ink);color:#fff;border-radius:11px;padding:10px 14px;font-weight:900;cursor:pointer}
+@media(max-width:680px){.answers,.breakdown{grid-template-columns:1fr}.question{font-size:21px}.quiz-top{grid-template-columns:1fr}.score{justify-self:start}.fillrow{flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="shell top">
+  <div class="brand"><span class="mark">TA</span>Turkish with Akın</div>
+  <div class="lang"><button class="active" data-lang="tr">TR</button><button data-lang="en">EN</button></div>
+</header>
+<main class="shell">
+<section class="hero">
+  <div class="kicker" data-tr="KENDİNİ TEST ET" data-en="TEST YOURSELF">KENDİNİ TEST ET</div>
+  <h1 data-tr="Zarf-Fiiller Mini Testi" data-en="Converbs Mini Test">Zarf-Fiiller Mini Testi</h1>
+  <p data-tr="10 soruda dört yapıyı görevlerine göre ayırt et: nasıl, hangi sırayla, tekrar/süreç ve ne zaman?"
+     data-en="Distinguish the four structures by function: how, sequence, repetition/process and when.">
+     10 soruda dört yapıyı görevlerine göre ayırt et: nasıl, hangi sırayla, tekrar/süreç ve ne zaman?
+  </p>
+  </section>
+
+<section class="quiz">
+<div id="quizUI">
+  <div class="quiz-top">
+    <div>
+      <div class="progress-meta"><span id="qcount">1 / 10</span><span data-tr="İlerleme" data-en="Progress">İlerleme</span></div>
+      <div class="progress"><div id="bar"></div></div>
+    </div>
+    <div class="score"><span data-tr="Puan" data-en="Score">Puan</span> <span id="score">0</span></div>
+  </div>
+  <div class="qwrap">
+    <div class="qtype" id="qtype"></div>
+    <div class="question" id="question"></div>
+    <div class="function-note" id="functionNote"></div>
+    <div id="interaction"></div>
+    <div class="feedback" id="feedback"></div>
+  </div>
+  <div class="bottom">
+    <div class="micro" data-tr="Cevaplandıktan sonra yapının görevi açıklanır." data-en="The function is explained after you answer.">Cevaplandıktan sonra yapının görevi açıklanır.</div>
+    <button class="next" id="next" data-tr="Sonraki →" data-en="Next →">Sonraki →</button>
+  </div>
+</div>
+
+<div class="result" id="result">
+  <div class="result-head">
+    <div class="result-score" id="finalScore">0/10</div>
+    <h2 data-tr="Test tamamlandı" data-en="Test completed">Test tamamlandı</h2>
+    <p id="resultMsg"></p>
+  </div>
+  <div class="breakdown">
+    <div class="skill"><small>-(y)ArAk · Nasıl?</small><b id="s1">0/0</b></div>
+    <div class="skill"><small>-(y)Ip · Sıralama</small><b id="s2">0/0</b></div>
+    <div class="skill"><small>-A…-A · Tekrar</small><b id="s3">0/0</b></div>
+    <div class="skill"><small>-(y)ken · Ne zaman?</small><b id="s4">0/0</b></div>
+  </div>
+  <div class="result-actions">
+    <button class="restart" id="restart" data-tr="Tekrar Çöz" data-en="Try Again">Tekrar Çöz</button>
+    <button class="wrong-review" id="reviewWrong" data-tr="Yanlış Cevaplara Bak" data-en="Review Wrong Answers">Yanlış Cevaplara Bak</button>
+    <button class="lessonback" onclick="location.href='/dersler/zarf-fiiller/'" data-tr="Konu Anlatımına Dön" data-en="Back to Lesson">Konu Anlatımına Dön</button>
+  </div>
+</div>
+
+<div class="review" id="review">
+  <h2 data-tr="Yanlış Cevaplarım" data-en="My Wrong Answers">Yanlış Cevaplarım</h2>
+  <div id="reviewList"></div>
+  <button class="back-result" id="backResult" data-tr="Sonuca Dön" data-en="Back to Results">Sonuca Dön</button>
+</div>
+</section>
+</main>
+
+<script>
+const questions=[
+{type:"mc",skill:"arak",funcTR:"Görev: Bir eylemin NASIL yapıldığını bul.",funcEN:"Function: Find HOW an action is performed.",
+tr:"Ahmet düzenli spor yap___ kilo verdi.",en:"Which form shows HOW Ahmet lost weight through regular exercise?",opts:["yaparak","yapıp","yaparken","yapa yapa"],c:0,whytr:"“Yaparak” yöntemi bildirir ve “Nasıl?” sorusuna cevap verir.",whyen:"“Yaparak” expresses method and answers “How?”"},
+{type:"mc",skill:"aa",funcTR:"Görev: Tekrar ve sürece yayılan eylemi bul.",funcEN:"Function: Find repetition/process.",
+tr:"Hangi cümlede eylem tekrar edilerek sürece yayılmıştır?",en:"Which sentence expresses repetition over time?",opts:["Otobüsten inip taksiye bindi.","Turistlerle konuşa konuşa Türkçesini geliştirdi.","Evden çıkarken anahtarını unuttu.","Kitap okuyarak vakit geçirdi."],c:1,whytr:"“Konuşa konuşa” tekrar/süreç anlamı verir.",whyen:"“Konuşa konuşa” expresses repetition/process."},
+{type:"mc",skill:"ken",funcTR:"Görev: “Ne zaman?” sorusuna cevap veren yapıyı bul.",funcEN:"Function: Find the structure answering “When?”",
+tr:"Telefon ne zaman çaldı?",en:"When did the phone ring?",opts:["Ben yemek yaparken telefon çaldı.","Ben yemek yaparak telefon çaldı.","Ben yemek yapıp telefon çaldı.","Ben yemek yapa yapa telefon çaldı."],c:0,whytr:"“Yemek yaparken” zaman bildirir; “Telefon ne zaman çaldı?” sorusuna cevap verir.",whyen:"“Yemek yaparken” expresses time and answers “When did the phone ring?”"},
+{type:"mc",skill:"ip",funcTR:"Görev: Peş peşe yapılan eylemleri bağlayan yapıyı bul.",funcEN:"Function: Find the structure linking successive actions.",
+tr:"Sabah erkenden uyandım, duş aldım, kahvaltı yaptım. Bu eylemleri en doğal hangi yapı bağlar?",en:"Which structure naturally links these successive actions?",opts:["uyanıp / alıp","uyanarak / alarak","uyanırken / alırken","uyana uyana / ala ala"],c:0,whytr:"-(y)Ip peş peşe gerçekleşen eylemleri bağlar.",whyen:"-(y)Ip links successive actions."},
+{type:"tf",skill:"arak",funcTR:"Görev: Yapının görevini değerlendir.",funcEN:"Function: Evaluate the function.",
+tr:"“-(y)ArAk” çoğu zaman “Nasıl?” sorusuna cevap verir.",en:"“-(y)ArAk” often answers the question “How?”",c:true,whytr:"Doğru. Temel işlevlerinden biri yöntem/tarz bildirmektir.",whyen:"Correct. One main function is expressing method/manner."},
+{type:"tf",skill:"ken",funcTR:"Görev: Zaman işlevini değerlendir.",funcEN:"Function: Evaluate the time function.",
+tr:"“Derse giderken arkadaşımı gördüm.” cümlesinde -(y)ken “Ne zaman gördüm?” sorusuna cevap verir.",en:"In “Derse giderken arkadaşımı gördüm,” -(y)ken answers “When did I see my friend?”",c:true,whytr:"Doğru. “Derse giderken” zaman bilgisidir.",whyen:"Correct. “Derse giderken” gives time information."},
+{type:"fill",skill:"ip",funcTR:"Görev: İki eylemi sıraya koyan -(y)Ip yapısını tamamla.",funcEN:"Function: Complete the -(y)Ip form that links two successive actions.",
+tr:"Çantasını al___ sınıftan çıktı. (almak)",en:"Çantasını al___ sınıftan çıktı. (almak)",answer:["ıp","alıp"],exampleTR:"Sadece eki (-ıp) ya da tam biçimi (alıp) yazabilirsin.",exampleEN:"You may write only the suffix (-ıp) or the full form (alıp).",whytr:"Doğru: “alıp / -ıp”. Önce çantasını aldı, sonra sınıftan çıktı.",whyen:"Correct: “alıp / -ıp”. First the bag was taken, then the person left the classroom."},
+{type:"fill",skill:"ken",funcTR:"Görev: Zaman bildiren -(y)ken yapısını tamamla.",funcEN:"Function: Complete the -(y)ken form that expresses time.",
+tr:"Okula gider___ yağmur başladı. (gitmek)",en:"Okula gider___ yağmur başladı. (gitmek)",answer:["ken","giderken"],exampleTR:"Sadece eki (-ken) ya da tam biçimi (giderken) yazabilirsin.",exampleEN:"You may write only the suffix (-ken) or the full form (giderken).",whytr:"Doğru: “giderken / -ken”. Yağmurun ne zaman başladığını bildiriyor.",whyen:"Correct: “giderken / -ken”. It tells when the rain started."},
+{type:"mc",skill:"aa",funcTR:"Görev: -A…-A yapısının doğru biçimini seç.",funcEN:"Function: Choose the correct -A…-A form.",
+tr:"Hangisi doğru kurulmuştur?",en:"Which form is correct?",opts:["konuşarak konuşarak","konuşa konuşa","konuşup konuşarak","konuşurken konuşa"],c:1,whytr:"-A…-A yapısı aynı fiilin tekrar edilmesiyle kurulur: konuşa konuşa.",whyen:"-A…-A repeats the same verb form: konuşa konuşa."},
+{type:"mc",skill:"arak",funcTR:"Görev: “Nasıl öğrendi?” sorusuna cevap veren cümleyi bul.",funcEN:"Function: Find the sentence answering “How did they learn?”",
+tr:"Yeni kelimeleri nasıl öğreniyor?",en:"How does the learner learn new words?",opts:["Türkçe dizileri izleyerek yeni kelimeler öğreniyor.","Türkçe dizileri izlerken yeni kelimeler öğreniyor.","Türkçe dizileri izleyip yeni kelimeler öğreniyor.","Türkçe dizileri izleye izleye yeni kelimeler öğreniyor."],c:0,whytr:"“İzleyerek” öğrenme yöntemini gösterir ve “Nasıl?” sorusuna cevap verir.",whyen:"“İzleyerek” shows the method and answers “How?”"}
+];
+
+let i=0,score=0,lang="tr",answered=false;
+let wrongAnswers=[];
+const skillStats={arak:[0,0],ip:[0,0],aa:[0,0],ken:[0,0]};
+const qcount=document.getElementById("qcount"),bar=document.getElementById("bar"),scoreEl=document.getElementById("score");
+const qtype=document.getElementById("qtype"),question=document.getElementById("question"),functionNote=document.getElementById("functionNote"),interaction=document.getElementById("interaction");
+const feedback=document.getElementById("feedback"),next=document.getElementById("next");
+
+function staticLang(){document.documentElement.lang=lang;document.querySelectorAll("[data-tr][data-en]").forEach(el=>el.textContent=el.dataset[lang]);}
+function typeLabel(t){if(lang==="tr")return t==="mc"?"Çoktan Seçmeli":t==="tf"?"Doğru / Yanlış":"Boşluk Tamamlama";return t==="mc"?"Multiple Choice":t==="tf"?"True / False":"Fill in the Blank";}
+function render(){
+ answered=false;feedback.className="feedback";feedback.textContent="";next.classList.remove("enabled");
+ const x=questions[i];qcount.textContent=(i+1)+" / "+questions.length;bar.style.width=((i+1)/questions.length*100)+"%";
+ qtype.textContent=typeLabel(x.type);question.textContent=lang==="tr"?x.tr:x.en;functionNote.innerHTML="<b>"+(lang==="tr"?"İpucu / İşlev: ":"Hint / Function: ")+"</b>"+(lang==="tr"?x.funcTR:x.funcEN);interaction.innerHTML="";
+ if(x.type==="mc"){
+  const box=document.createElement("div");box.className="answers";
+  x.opts.forEach((o,j)=>{const b=document.createElement("button");b.className="answer";b.innerHTML=`<span class="key">${String.fromCharCode(65+j)}</span><span>${o}</span>`;b.onclick=()=>answerMC(b,j);box.appendChild(b)});interaction.appendChild(box);
+ }else if(x.type==="tf"){
+  const box=document.createElement("div");box.className="tf";
+  const y=document.createElement("button");y.className="yes";y.innerHTML=`<span class="symbol">✓</span><span>${lang==="tr"?"Doğru":"True"}</span>`;y.onclick=()=>answerTF(y,true);
+  const n=document.createElement("button");n.className="no";n.innerHTML=`<span class="symbol">✕</span><span>${lang==="tr"?"Yanlış":"False"}</span>`;n.onclick=()=>answerTF(n,false);
+  box.append(y,n);interaction.appendChild(box);
+ }else{
+  const box=document.createElement("div");box.className="fillbox";
+  box.innerHTML=`<div class="sentence">${lang==="tr"?x.tr:x.en}</div>
+  <div class="fill-help"><strong>${lang==="tr"?"Cevap biçimi:":"Answer format:"}</strong> ${lang==="tr"?x.exampleTR:x.exampleEN}</div>
+  <div class="fillrow"><input id="fillInput" autocomplete="off" placeholder="${lang==="tr"?"Tam kelimeyi yaz":"Write the full word"}"><button class="checkbtn">${lang==="tr"?"Kontrol Et":"Check"}</button></div>`;
+  box.querySelector(".checkbtn").onclick=answerFill;interaction.appendChild(box);
+ }
+}
+function recordWrong(x,your,correct){wrongAnswers.push({q:lang==="tr"?x.tr:x.en,your,correct,why:lang==="tr"?x.whytr:x.whyen});}
+function mark(ok,x){
+ answered=true;skillStats[x.skill][1]++;if(ok){score++;skillStats[x.skill][0]++;scoreEl.textContent=score}
+ feedback.className="feedback "+(ok?"good":"bad")+" show";
+ feedback.innerHTML=`<b>${ok?(lang==="tr"?"Doğru":"Correct"):(lang==="tr"?"Yanlış":"Incorrect")}</b>${lang==="tr"?x.whytr:x.whyen}`;
+ next.classList.add("enabled");
+}
+function answerMC(btn,j){
+ if(answered)return;const x=questions[i],buttons=[...interaction.querySelectorAll(".answer")];
+ buttons.forEach((b,k)=>{b.disabled=true;if(k===x.c)b.classList.add("correct")});if(j!==x.c){btn.classList.add("wrong");recordWrong(x,x.opts[j],x.opts[x.c])}mark(j===x.c,x);
+}
+function answerTF(btn,val){
+ if(answered)return;const x=questions[i];[...interaction.querySelectorAll("button")].forEach(b=>b.disabled=true);
+ btn.style.borderColor=val===x.c?"#a8dccd":"#e8bbb7";btn.style.background=val===x.c?"#eef9f5":"#fff2f1";
+ if(val!==x.c)recordWrong(x,val?(lang==="tr"?"Doğru":"True"):(lang==="tr"?"Yanlış":"False"),x.c?(lang==="tr"?"Doğru":"True"):(lang==="tr"?"Yanlış":"False"));mark(val===x.c,x);
+}
+function normalizeFill(value){
+ return value
+   .trim()
+   .toLocaleLowerCase("tr-TR")
+   .replace(/^[-–—]\s*/,"")
+   .replace(/\s+/g,"");
+}
+function answerFill(){
+ if(answered)return;
+ const x=questions[i],inp=document.getElementById("fillInput");
+ const v=normalizeFill(inp.value);
+ const accepted=x.answer.map(normalizeFill);
+ // Kullanıcı deneyimi için Türkçe klavyedeki ı/i varyantını da kabul et.
+ const variants=[v,v.replaceAll("i","ı"),v.replaceAll("ı","i")];
+ const ok=variants.some(val=>accepted.includes(val));
+ inp.style.borderColor=ok?"#a8dccd":"#e8bbb7";
+ inp.style.background=ok?"#eef9f5":"#fff2f1";
+ inp.disabled=true;
+ if(!ok)recordWrong(x,inp.value.trim()||"—",x.answer.join(" / "));
+ mark(ok,x);
+}
+next.onclick=()=>{if(!answered)return;if(i<questions.length-1){i++;render()}else finish()};
+function finish(){
+ document.getElementById("quizUI").style.display="none";document.getElementById("result").classList.add("show");
+ document.getElementById("finalScore").textContent=score+"/"+questions.length;
+ const p=score/questions.length;
+ document.getElementById("resultMsg").textContent=lang==="tr"?(p>=.9?"Harika. Dört yapıyı görevlerine göre güvenle ayırt ediyorsun.":p>=.7?"İyi seviyedesin. Yanlış cevaplarını inceleyip kısa bir tekrar yapabilirsin.":"Yanlış cevaplarına bakıp konu anlatımını tekrar etmen faydalı olur."):(p>=.9?"Excellent. You can distinguish all four structures by function.":p>=.7?"Good level. Review your wrong answers and do a short recap.":"Review your wrong answers and revisit the lesson.");
+ [["s1","arak"],["s2","ip"],["s3","aa"],["s4","ken"]].forEach(([id,k])=>document.getElementById(id).textContent=skillStats[k][0]+"/"+skillStats[k][1]);
+}
+document.getElementById("reviewWrong").onclick=()=>{
+ document.getElementById("result").classList.remove("show");document.getElementById("review").classList.add("show");
+ const list=document.getElementById("reviewList");
+ list.innerHTML=wrongAnswers.length?wrongAnswers.map((w,n)=>`<div class="review-item"><b>${n+1}. ${w.q}</b><div class="your">${lang==="tr"?"Senin cevabın":"Your answer"}: ${w.your}</div><div class="correcta">${lang==="tr"?"Doğru cevap":"Correct answer"}: ${w.correct}</div><small>${w.why}</small></div>`).join(""):`<div class="review-item">${lang==="tr"?"Yanlış cevabın yok. Tebrikler!":"No wrong answers. Well done!"}</div>`;
+};
+document.getElementById("backResult").onclick=()=>{document.getElementById("review").classList.remove("show");document.getElementById("result").classList.add("show")};
+document.getElementById("restart").onclick=()=>{
+ i=0;score=0;answered=false;wrongAnswers=[];scoreEl.textContent=0;Object.keys(skillStats).forEach(k=>skillStats[k]=[0,0]);
+ document.getElementById("result").classList.remove("show");document.getElementById("review").classList.remove("show");document.getElementById("quizUI").style.display="block";render();
+};
+document.querySelectorAll("[data-lang]").forEach(b=>b.onclick=()=>{lang=b.dataset.lang;document.querySelectorAll("[data-lang]").forEach(x=>x.classList.toggle("active",x===b));staticLang();render()});
+staticLang();render();
+</script>
+</body>
+</html>
