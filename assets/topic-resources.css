@@ -1,16 +1,35 @@
-/* Resource controls share a row; panels occupy their own full-width row. */
-.topic-actions{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin-top:6px}
-.topic-actions>a,.resource-toggle{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;min-height:48px;padding:10px 14px;border:0;border-radius:10px;font-weight:800;line-height:1.4;text-align:left;cursor:pointer;overflow-wrap:anywhere}
-.topic-actions>a{background:#e9f0ff;color:#1f55b3}
-.resource-toggle.worksheets{background:#e5f4f1;color:#08786c}
-.resource-toggle.games{background:#f1edff;color:#6549ad}
-.resource-toggle[aria-expanded="true"]{box-shadow:inset 0 0 0 2px rgba(71,91,180,.15)}
+/* Approved topic resource controls: compact, subordinate to the topic title. */
+.topic-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:6px}
+.topic-action,.resource-toggle{min-width:0;min-height:44px;padding:8px 10px;border:1px solid transparent;border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;font:700 13px/1.2 "DM Sans",sans-serif;text-align:left;overflow-wrap:anywhere;text-decoration:none;transition:transform .12s ease,box-shadow .12s ease}
+.topic-action:hover,.resource-toggle:hover{transform:translateY(-1px);box-shadow:0 5px 13px rgba(31,67,92,.07)}
+.topic-action .action-label,.resource-toggle .action-label{display:flex;align-items:center;gap:7px;min-width:0;white-space:nowrap}
+.topic-action svg,.resource-toggle svg{width:16px;height:16px;flex:none;stroke-width:1.9}
+.topic-action.lesson{background:#edf3ff;border-color:#d8e4ff;color:#2858a8}
+.resource-toggle.worksheets{background:#edf8f3;border-color:#d5eee2;color:#23745b}
+.resource-toggle.games{background:#f3effd;border-color:#e2d9f8;color:#674eaa}
+.resource-toggle.test{background:#fff3e9;border-color:#f5dec9;color:#a6602b}
+.resource-arrow{font-size:14px;line-height:1;opacity:.7;transition:transform .18s ease}
+.resource-toggle[aria-expanded="true"]{box-shadow:inset 0 0 0 1px currentColor}
 .resource-toggle[aria-expanded="true"] .resource-arrow{transform:rotate(180deg)}
-.topic-actions>a:focus-visible,.resource-toggle:focus-visible,.resource-panel a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-.resource-panel{display:grid;gap:6px;width:100%;margin-top:10px;padding:8px;background:#f8fafc;border:1px solid #dce5ec;border-radius:12px}
+.topic-action.lesson .action-label{flex:0 1 auto;justify-content:flex-start;min-width:0;white-space:nowrap}
+.topic-action.lesson>span[aria-hidden="true"]{margin-left:auto;flex:0 0 auto;display:block;line-height:1;text-align:right}
+.topic-action:focus-visible,.resource-toggle:focus-visible,.resource-panel a:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.resource-panel{display:grid;gap:6px;width:100%;margin-top:8px;padding:7px;background:#f8fafc;border:1px solid #dce5ec;border-radius:10px}
 .resource-panel[hidden]{display:none}
-.resource-panel a{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;min-height:44px;padding:11px 13px;background:#fff;color:var(--ink);border-radius:8px;font-size:15px;line-height:1.4;font-weight:700;overflow-wrap:anywhere}
+.resource-panel a,.resource-empty{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:10px;min-height:40px;padding:9px 11px;background:#fff;color:var(--ink);border:1px solid #e5edf2;border-radius:8px;font-size:13px;line-height:1.35;font-weight:700;overflow-wrap:anywhere}
 .resource-panel a:hover{background:#eef3f7}
-.resource-panel a>span:first-child{min-width:0}
-.resource-panel a>span:last-child{font-size:18px;opacity:.65}
-@media(max-width:700px){.topic-actions>a,.resource-toggle{flex:1 1 100%}}
+.resource-empty{grid-template-columns:1fr;color:var(--muted);font-weight:500}
+.resource-panel a>span:first-child{min-width:0}.resource-panel a>span:last-child{font-size:17px;opacity:.65}
+@media(max-width:760px){.topic-actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:430px){.topic-actions{grid-template-columns:1fr}}
+
+/* Level Completion uses the site's existing folder component and stays visually consistent. */
+.level-completion .folder-head{background:#fff4f2!important}
+.level-completion .folder-icon,.level-completion .icon{background:#d86760!important;color:#fff!important}
+.completion-options{padding:10px 14px}
+.completion-option{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:15px 10px;border-bottom:1px solid #e8eef2;border-radius:11px}
+.completion-option:last-child{border-bottom:0}
+.completion-option:hover{background:#f5f8fb}
+.completion-option b{display:block;font:800 17px Manrope}
+.completion-option small{display:block;color:var(--muted);margin-top:4px}
+.completion-option .arrow{font-size:20px;color:var(--blue)}
