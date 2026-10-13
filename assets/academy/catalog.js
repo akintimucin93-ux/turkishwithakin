@@ -1,5 +1,5 @@
 'use strict';
-// All entries point to unchanged resources from main 7bc5e3b4a2342003242ba55d0f301520a77ada0d.
+// Resource catalog: existing materials plus the approved -(y)ken lesson and two PDFs.
 window.AcademyCatalog = {
   types: {
     lessons: {en:'Lessons',tr:'Konu Anlatımları'}, worksheets:{en:'Worksheets',tr:'Çalışma Kâğıtları'},
@@ -10,6 +10,9 @@ window.AcademyCatalog = {
   },
   levels:[{id:'a1',label:'A1',en:'Beginner',tr:'Başlangıç'},{id:'a2',label:'A2',en:'Elementary',tr:'Temel'},{id:'b1',label:'B1',en:'Intermediate',tr:'Orta'}],
   items:[
+    {levels:['b1'],types:['lessons'],path:'dersler/ken/',en:'Converb · -(y)ken',tr:'Zarf-Fiil · -(y)ken',descEn:'Time, simultaneous events and comparisons · Lesson notes',descTr:'Zaman, eş zamanlılık ve karşılaştırma · Konu anlatımı'},
+    {levels:['b1'],types:['worksheets'],path:'dersler/ken/calisma-kagidi.pdf',en:'-(y)ken · Worksheet 1 & Lesson Notes',tr:'-(y)ken · Çalışma Kağıdı 1 ve Ders Notu',descEn:'B1–B2 PDF · Reading and writing activities',descTr:'B1–B2 PDF · Okuma ve yazma etkinlikleri'},
+    {levels:['b1'],types:['worksheets'],path:'dersler/zarf-fiiller/calisma-kagidi-2.pdf',en:'General Converbs · Worksheet 2',tr:'Genel Zarf-Fiiller · Çalışma Kağıdı 2',descEn:'-(y)ArAk, -A…-A, -(y)Ip, -(y)ken · Printable PDF',descTr:'-(y)ArAk, -A…-A, -(y)Ip, -(y)ken · Yazdırılabilir PDF'},
     {levels:['b1'],types:['lessons'],path:'dersler/zarf-fiiller/',en:'Converbs · -(y)ArAk, -A…-A, -(y)Ip, -(y)ken',tr:'Zarf-Fiiller · -(y)ArAk, -A…-A, -(y)Ip, -(y)ken',descEn:'Meaning, examples and common mistakes',descTr:'Anlam, örnekler ve sık yapılan hatalar'},
     {levels:['b1'],types:['lessons'],path:'dersler/simdiki-zamanin-hikayesi/',en:'Past Continuous · -(I)yordu',tr:'Şimdiki Zamanın Hikâyesi · -(I)yordu',descEn:'Past actions in progress and narrative background',descTr:'Geçmişte devam eden eylemler ve hikâye arka planı'},
     {levels:['b1'],types:['worksheets'],path:'dersler/zarf-fiiller/calisma-kagidi.pdf',en:'B1 Converbs Worksheet',tr:'B1 Zarf-Fiiller Çalışma Kâğıdı',descEn:'Printable PDF',descTr:'Yazdırılabilir PDF'},
