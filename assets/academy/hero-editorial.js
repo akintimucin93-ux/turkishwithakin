@@ -1,7 +1,7 @@
 'use strict';
 (()=>{
  const header=document.querySelector('.aa-editorial-header');if(!header)return;
- function title(){const tr=document.documentElement.lang==='tr';document.title='Akın Academy — '+(header.querySelector('a[aria-current=page]')?(tr?'Hakkında':'About'):(tr?'Bir kelimeyle başlar':'It starts with a word'));}
+ function title(){const tr=document.documentElement.lang==='tr';document.title='Akın Academy — '+(header.querySelector('a[aria-current=page]')?(tr?'Hakkında':'About'):(tr?'Online Türkçe ve Ücretsiz Kaynaklar':'Online Turkish & Free Learning Resources'));}
  window.addEventListener('site-language-changed',title);title();
  const toggle=header.querySelector('.aa-search-toggle'),form=header.querySelector('.site-search');
  if(!toggle||!form)return;
