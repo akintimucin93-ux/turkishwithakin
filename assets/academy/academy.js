@@ -1,5 +1,6 @@
 'use strict';
-(function(){
+(async function(){
+  if(document.getElementById("catalog-content")){try{const response=await fetch(new URL("../learning/catalog.json",document.querySelector('script[src$="academy.js"]').src),{cache:"no-store"});if(response.ok)window.AcademyCatalog=await response.json();}catch(_catalogError){}}
   const catalog=window.AcademyCatalog;
   const isCatalog=!!document.getElementById('catalog-content');
   const rootPrefix=isCatalog?'../':'';
@@ -46,12 +47,20 @@
       button.setAttribute('aria-expanded',String(open));
       fragment.querySelector('[id="'+id+'"]')?.toggleAttribute('hidden',!open);
     });
+    const represented=new Set([...fragment.querySelectorAll('[data-existing-path]')].map(a=>a.dataset.existingPath));
+    catalog.items.filter(i=>i.levels.includes('b1')&&i.types.includes('lessons')&&!represented.has(i.path)).forEach(item=>{
+      const details=node('details','catalog-topic');details.dataset.topic=item.id;details.open=opened.includes(item.id);
+      const summary=node('summary');const heading=node('span');heading.append(node('b','',item[language]),node('small','',item[language==='tr'?'descTr':'descEn']));summary.append(heading,node('span','topic-arrow','⌄'));
+      const content=node('div','topic-content');const actions=node('div','topic-actions');const link=node('a','topic-action lesson',translated('Lesson →','Konu →'));link.href=localPath(item.path);link.dataset.existingPath=item.path;actions.append(link);content.append(actions);
+      catalog.items.filter(i=>i.levels.includes('b1')&&i.types.includes('worksheets')&&i.topic&&i.topic===item.topic).forEach(pdf=>content.append(itemLink(pdf)));
+      details.append(summary,content);fragment.append(details);
+    });
     return fragment;
   }
   function renderGames(mount){
     mount.classList.add('game-gallery');
     catalog.items.filter(item=>item.types.includes('games')).forEach(item=>{
-      const art=window.AcademyGameArt[item.path];
+      const art=window.AcademyGameArt[item.path]||{image:'assets/academy/games.webp',topicEn:item.en,topicTr:item.tr};
       const a=node('a','gallery-game');a.href=localPath(item.path);a.dataset.gamePath=item.path;
       const picture=node('div','gallery-picture'+(art.vocabulary?' vocabulary-picture':''));picture.setAttribute('aria-hidden','true');
       if(art.image){const image=node('img',art.sheet?'existing-cover-sheet':'');image.src=rootPrefix+art.image;image.alt='';image.loading='lazy';image.decoding='async';picture.append(image);}
@@ -93,7 +102,7 @@
         const folderHeading=node('div','folder-heading');folderHeading.append(node('h2','',`${level.label} · ${level[language]}`),node('p','',translated(`${items.length} available ${items.length===1?'material':'materials'}`,`${items.length} mevcut materyal`)));
         summary.append(folderHeading,node('span','folder-chevron','⌄'));summary.lastChild.setAttribute('aria-hidden','true');
         const content=node('div','folder-items');
-        if(level.id==='b1'&&selectedType==='lessons'){content.append(cloneB1Lessons(opened,expanded));}
+        if(level.id==='b1'&&selectedType==='lessons'){content.append(cloneB1Lessons(opened,expanded));const existing=new Set([...content.querySelectorAll('.topic-action.lesson')].map(a=>a.dataset.existingPath));items.filter(i=>!existing.has(i.path)).forEach(item=>content.append(itemLink(item)));}
         else if(items.length)items.forEach(item=>content.append(itemLink(item)));
         else content.append(node('p','empty-state',translated('The content in this section will be updated and added later.','Bu bölümdeki içerikler daha sonra güncellenecek ve eklenecektir.')));
         details.append(summary,content);mount.append(details);

@@ -1,1 +1,23 @@
-﻿{"name":"turkish","compatibility_date":"2026-09-30","assets":{"directory":".","not_found_handling":"single-page-application","run_worker_first":false}}
+{
+  "name": "turkish",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-09-30",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "not_found_handling": "none",
+    "run_worker_first": [
+      "/api/*",
+      "/dersler/*",
+      "/oyunlar/*",
+      "/okuma/*",
+      "/testler/*",
+      "/kitaplar/*",
+      "/seviyeler/*"
+    ]
+  },
+  "vars": {
+    "SITE_ORIGIN": "https://turkish.akinacademy.workers.dev",
+    "OWNER_EMAIL": "ak.timucin@windowslive.com"
+  }
+}

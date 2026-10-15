@@ -1,1 +1,12 @@
-﻿.git
+worker.mjs
+database/
+setup/
+.git/
+.dev.vars*
+node_modules/
+package*.json
+wrangler.jsonc
+.assetsignore
+.wrangler/
+git
+**/index.backup.html

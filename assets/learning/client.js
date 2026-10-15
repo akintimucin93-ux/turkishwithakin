@@ -1,0 +1,17 @@
+let config,session;
+const KEY='akin-session-v1';
+try{session=JSON.parse(sessionStorage.getItem(KEY)||'null');}catch{}
+export async function configuration(){if(!config){const r=await fetch('/api/config',{cache:'no-store'});if(!r.ok)throw Error('Üyelik servisi henüz bağlanmadı / Membership service is not connected');try{config=await r.json();}catch{throw Error('Üyelik servisi henüz bağlanmadı / Membership service is not connected');}}return config;}
+export function saveSession(s){session=s?.access_token?{access_token:s.access_token,refresh_token:s.refresh_token,expires_at:Date.now()+Number(s.expires_in||3600)*1000}:null;try{if(session)sessionStorage.setItem(KEY,JSON.stringify(session));else sessionStorage.removeItem(KEY);}catch{}}
+export async function auth(path,data,method='POST',signed=false){const c=await configuration();if(!c.configured)throw Error('Üyelik servisi henüz bağlanmadı / Membership service is not connected');const headers={apikey:c.key,'Content-Type':'application/json'};if(signed)headers.Authorization='Bearer '+await accessToken();const r=await fetch(c.url+'/auth/v1/'+path,{method,headers,body:data===undefined?undefined:JSON.stringify(data)});let result={};try{result=await r.json();}catch{}if(!r.ok)throw Error(result.msg||result.error_description||result.message||'İşlem tamamlanamadı / Request failed');return result;}
+let refreshing;
+export async function accessToken(){if(!session)throw Error('Giriş gerekli / Please log in');if(session.expires_at<Date.now()+60000){if(!refreshing)refreshing=auth('token?grant_type=refresh_token',{refresh_token:session.refresh_token}).then(saveSession).catch(e=>{saveSession(null);throw e;}).finally(()=>{refreshing=null;});await refreshing;}return session.access_token;}
+export function hasSession(){return !!session;}
+export async function api(path,data){const headers={Authorization:'Bearer '+await accessToken()};if(data!==undefined){headers['Content-Type']='application/json';}const r=await fetch('/api/'+path,{method:data===undefined?'GET':'POST',headers,body:data===undefined?undefined:JSON.stringify(data),cache:'no-store',keepalive:data!==undefined&&['progress','activity-result'].includes(path)});let b;try{b=await r.json();}catch{throw Error('Üyelik servisi henüz bağlanmadı / Membership service is not connected');}if(!r.ok)throw Error(b.error||'İşlem tamamlanamadı / Request failed');return b;}
+export async function signOut(){try{await auth('logout',undefined,'POST',true);}finally{saveSession(null);}}
+export async function verifyLink(){const p=new URLSearchParams(location.search),h=new URLSearchParams(location.hash.slice(1));let mode=null;
+ if(p.has('token_hash')){const type=p.get('type');if(!['email','recovery'].includes(type))throw Error('Geçersiz doğrulama bağlantısı / Invalid verification link');const token=p.get('token_hash');history.replaceState({},'',location.pathname);const s=await auth('verify',{token_hash:token,type});saveSession(s);mode=type==='recovery'?'reset':'verified';}
+ else if(h.has('access_token')){const type=h.get('type');saveSession({access_token:h.get('access_token'),refresh_token:h.get('refresh_token'),expires_in:h.get('expires_in')});history.replaceState({},'',location.pathname);mode=type==='recovery'?'reset':'verified';}
+ else if(p.has('error')||h.has('error')){history.replaceState({},'',location.pathname);throw Error('Bağlantının süresi dolmuş veya bağlantı kullanılmış / Link expired or already used');}
+ return mode;
+}
